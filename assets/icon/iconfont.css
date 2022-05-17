@@ -1,0 +1,75 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 2698146 */
+  src: url('iconfont.woff2?t=1631872022262') format('woff2'),
+       url('iconfont.woff?t=1631872022262') format('woff'),
+       url('iconfont.ttf?t=1631872022262') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  /* font-size: 16px; */
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-link:before {
+  content: "\e62f";
+}
+
+.icon-android:before {
+  content: "\e62a";
+}
+
+.icon-game:before {
+  content: "\e682";
+}
+
+.icon-home:before {
+  content: "\e6b5";
+}
+
+.icon-love:before {
+  content: "\e642";
+}
+
+.icon-web:before {
+  content: "\e935";
+}
+
+.icon-ai:before {
+  content: "\e608";
+}
+
+.icon-python:before {
+  content: "\f216";
+}
+
+.icon-down:before {
+  content: "\e72d";
+}
+
+.icon-github:before {
+  content: "\e620";
+}
+
+.icon-java:before {
+  content: "\e623";
+}
+
+.icon-js:before {
+  content: "\e600";
+}
+
+.icon-Cyuyan:before {
+  content: "\e61a";
+}
+
+.icon-cyuyan:before {
+  content: "\e61b";
+}
+
+.icon-QQ:before {
+  content: "\e62b";
+}
+
