@@ -5,6 +5,10 @@ html {
   font-family: 'Noto Sans SC', sans-serif;
 }
 
+body {
+  @apply bg-primary-background;
+}
+
 @media screen and (min-width: 48em) {
   html {
     font-size: calc(0.35842vw + 0.95296em);

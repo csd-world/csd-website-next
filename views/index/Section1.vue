@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-full text-[#122B6D] bg-[url('assets/svg/background.svg')] bg-no-repeat bg-cover bg-center bg-fixed grid place-content-center text-center"
+    class="h-full text-primary bg-[url('assets/svg/background.svg')] bg-no-repeat bg-cover bg-center bg-fixed grid place-content-center text-center"
   >
     <h1 class="text-3xl font-bold">和我们一起，探索这个世界</h1>
     <p class="text-lg mt-5">

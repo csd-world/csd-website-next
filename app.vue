@@ -1,4 +1,18 @@
+<script
+  setup
+  lang="ts"
+>
+import { DEFAULT_THEME } from './themes'
+import { getThemeCSS } from './themes/utils'
+</script>
+
 <template>
+  <Head>
+    <Style
+      type="text/css"
+      :children="`:root ${getThemeCSS(DEFAULT_THEME)}`"
+    />
+  </Head>
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>

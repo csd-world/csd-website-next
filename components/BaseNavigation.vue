@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex items-center w-full p-6 text-[#122B6D] fixed top-0 z-20"
+    class="flex items-center w-full p-6 text-primary fixed top-0 z-20"
   >
     <div class="flex-1 h-8">
       <Logo />
