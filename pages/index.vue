@@ -1,19 +1,17 @@
 <template>
   <div class="h-screen">
-    <swiper
-      class="h-full w-full"
-      :direction="'vertical'"
-      :simulate-touch="false"
-      :modules="modules"
-      :mousewheel="(true as any)"
-      :pagination="({
+    <swiper class="h-full w-full" :direction="'vertical'" :simulate-touch="false" :modules="modules"
+      :mousewheel="(true as any)" :pagination="({
         clickable: true,
-      } as any)"
-    >
-      <swiper-slide><Section1 /></swiper-slide
-      ><swiper-slide
-        ><p class="text-white">Slide 2</p></swiper-slide
-      ><swiper-slide>Slide 3</swiper-slide><swiper-slide>Slide 4</swiper-slide>
+      } as any)">
+      <swiper-slide>
+        <Section1 />
+      </swiper-slide>
+      <swiper-slide>
+        <p class="text-white">Slide 2</p>
+      </swiper-slide>
+      <swiper-slide>Slide 3</swiper-slide>
+      <swiper-slide>Slide 4</swiper-slide>
     </swiper>
   </div>
 </template>
@@ -43,18 +41,18 @@ const modules = ref([Pagination, Mousewheel, EffectCube, EffectFade])
 }
 
 .swiper-pagination {
-  @apply fixed right-2 bottom-1/2 z-20 translate-y-1/2 flex flex-col items-center;
+  @apply fixed right-2 bottom-1/2 z-20 translate-y-1/2 flex flex-col items-center space-y-1.5;
 }
 
 .swiper-pagination-bullet {
-  @apply w-4 h-4 opacity-70 cursor-pointer grid place-content-center after:transition-all after:block after:w-[.35rem] after:h-[.35rem] after:bg-primary-background after:rounded-full;
+  @apply w-[16px] h-[16px] opacity-70 cursor-pointer grid place-content-center after:transition-all after:block after:w-[8px] after:h-[8px] after:bg-primary-background after:rounded-full;
 }
 
 .swiper-pagination-bullet:hover:not(.swiper-pagination-bullet-active) {
-  @apply opacity-100 after:h-[.65rem] after:w-[.65rem];
+  @apply opacity-100 after:h-[12px] after:w-[12px];
 }
 
 .swiper-pagination-bullet.swiper-pagination-bullet-active {
-  @apply opacity-100 after:h-3 after:w-3;
+  @apply opacity-100 after:h-[16px] after:w-[16px];
 }
 </style>
