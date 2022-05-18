@@ -33,6 +33,7 @@ function handleSlideChangeStart(swiper: SwiperInstance) {
 <template>
   <div class="h-screen">
     <swiper
+      wrapper-tag="main"
       @slide-change-transition-start="handleSlideChangeStart"
       class="h-full w-full"
       :direction="'vertical'"

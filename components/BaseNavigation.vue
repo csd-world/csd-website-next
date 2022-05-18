@@ -42,7 +42,7 @@ const pages = usePages('navigation')
 const activeRoute = useActiveRoute()
 </script>
 <template>
-  <div
+  <nav
     class="flex items-center w-full p-6 fixed top-0 z-20 transition-colors duration-700"
     :class="
       +activeRoute.meta.key === 0 && slideActiveIndex === 0
@@ -66,5 +66,5 @@ const activeRoute = useActiveRoute()
       </nuxt-link>
     </ul>
     <div class="grow"></div>
-  </div>
+  </nav>
 </template>
