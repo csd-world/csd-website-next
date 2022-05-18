@@ -1,4 +1,7 @@
 import { themes } from '.'
+import Color from 'color'
+
+const lighten = (color: string, val: number) => Color(color).lighten(val).hex()
 
 export interface Theme {
   [key: string]: string
@@ -17,6 +20,8 @@ export const mapTheme: (variables: Theme) => MappedTheme = (
 ) => {
   return {
     '--color-primary': variables.primary || '',
+    '--color-primary-lighter':
+      (variables.primary && lighten(variables.primary, 0.3)) || '',
     '--color-secondary': variables.secondary || '',
     '--color-positive': variables.positive || '',
     '--color-negative': variables.negative || '',

@@ -12,7 +12,9 @@
     "prettier-plugin-tailwindcss": "^0.1.10"
   },
   "dependencies": {
+    "@types/color": "^3.0.3",
     "atropos": "^1.0.2",
+    "color": "^4.2.3",
     "swiper": "^8.1.4"
   }
 }
