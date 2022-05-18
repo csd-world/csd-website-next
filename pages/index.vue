@@ -2,8 +2,6 @@
   <div class="h-screen">
     <swiper
       @slide-change-transition-start="handleSlideChangeStart"
-      @slide-change-transition-end="handleSlideChangeEnd"
-      @active-index-change="handleActiveIndexChange"
       class="h-full w-full"
       :direction="'vertical'"
       :simulate-touch="false"
@@ -29,23 +27,23 @@
   setup
   lang="ts"
 >
-import { ref, provide } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import '~/style/swiper.css'
 import { Pagination, Mousewheel } from 'swiper'
 import { Swiper as SwiperInstance } from 'swiper'
 import Section1 from '~~/views/index/Section1.vue'
+import { useSlideStore } from '~~/store'
 
 const modules = [Pagination, Mousewheel]
 
+const slideStore = useSlideStore()
+const patchSlideStore = (value: typeof slideStore['$state']) =>
+  slideStore.$patch(value)
+
 function handleSlideChangeStart(swiper: SwiperInstance) {
-  console.log('slide change start', swiper.activeIndex)
+  patchSlideStore({
+    activeIndex: swiper.activeIndex,
+  })
 }
-
-function handleSlideChangeEnd(swiper: SwiperInstance) {
-  console.log('slide change end', swiper.activeIndex)
-}
-
-function handleActiveIndexChange() {}
 </script>

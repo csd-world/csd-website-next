@@ -8,6 +8,7 @@ import Atropos from 'atropos/vue'
 
 <template>
   <Atropos
+    :shadow-offset="0"
     :always-visible="true"
     :shadow-scale="1.15"
     :rotate-x-max="0.5"
@@ -38,7 +39,9 @@ import Atropos from 'atropos/vue'
         滚滚长江东逝水，浪花淘尽英雄。是非成败转头空，青山依旧在，几度夕阳红。
       </p>
       <div>
-        <BaseButton class="bg-primary hover:bg-primary-lighter text-white">马上加入</BaseButton>
+        <BaseButton class="bg-primary hover:bg-primary-lighter text-white"
+          >马上加入</BaseButton
+        >
       </div>
     </div>
   </Atropos>

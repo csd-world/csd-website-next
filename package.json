@@ -12,9 +12,11 @@
     "prettier-plugin-tailwindcss": "^0.1.10"
   },
   "dependencies": {
+    "@pinia/nuxt": "^0.1.9",
     "@types/color": "^3.0.3",
     "atropos": "^1.0.2",
     "color": "^4.2.3",
+    "pinia": "^2.0.14",
     "swiper": "^8.1.4"
   }
 }
