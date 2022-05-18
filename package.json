@@ -12,6 +12,7 @@
     "prettier-plugin-tailwindcss": "^0.1.10"
   },
   "dependencies": {
+    "atropos": "^1.0.2",
     "swiper": "^8.1.4"
   }
 }
