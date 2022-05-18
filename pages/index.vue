@@ -1,3 +1,35 @@
+<script
+  setup
+  lang="ts"
+>
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import 'swiper/css'
+import '~/style/swiper.css'
+import { Pagination, Mousewheel } from 'swiper'
+import { Swiper as SwiperInstance } from 'swiper'
+import Section1 from '~~/views/index/Section1.vue'
+import { useSlideStore } from '~~/store'
+import { CustomPageMeta } from '~~/types'
+
+definePageMeta({
+  title: '首页',
+  type: 'navigation',
+  key: 0
+} as CustomPageMeta)
+
+const modules = [Pagination, Mousewheel]
+
+const slideStore = useSlideStore()
+const patchSlideStore = (value: typeof slideStore['$state']) =>
+  slideStore.$patch(value)
+
+function handleSlideChangeStart(swiper: SwiperInstance) {
+  patchSlideStore({
+    activeIndex: swiper.activeIndex,
+  })
+}
+</script>
+
 <template>
   <div class="h-screen">
     <swiper
@@ -22,28 +54,3 @@
     </swiper>
   </div>
 </template>
-
-<script
-  setup
-  lang="ts"
->
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import 'swiper/css'
-import '~/style/swiper.css'
-import { Pagination, Mousewheel } from 'swiper'
-import { Swiper as SwiperInstance } from 'swiper'
-import Section1 from '~~/views/index/Section1.vue'
-import { useSlideStore } from '~~/store'
-
-const modules = [Pagination, Mousewheel]
-
-const slideStore = useSlideStore()
-const patchSlideStore = (value: typeof slideStore['$state']) =>
-  slideStore.$patch(value)
-
-function handleSlideChangeStart(swiper: SwiperInstance) {
-  patchSlideStore({
-    activeIndex: swiper.activeIndex,
-  })
-}
-</script>
