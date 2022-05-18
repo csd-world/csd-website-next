@@ -1,4 +1,3 @@
-
 .swiper-slide {
   @apply bg-primary-background;
 }
@@ -13,7 +12,7 @@
 }
 
 .swiper-pagination-bullet {
-  @apply w-[16px] h-[16px] opacity-70 cursor-pointer grid place-content-center after:transition-all after:block after:w-[8px] after:h-[8px] after:bg-primary-background after:rounded-full;
+  @apply w-[16px] h-[16px] opacity-70 cursor-pointer grid place-content-center after:transition-all after:block after:w-[8px] after:h-[8px] after:bg-white after:rounded-full after:bg-blend-multiply;
 }
 
 .swiper-pagination-bullet:hover:not(.swiper-pagination-bullet-active) {
