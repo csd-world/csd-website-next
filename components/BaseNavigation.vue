@@ -61,7 +61,7 @@ const activeRoute = useActiveRoute()
         :to="route.path"
       >
         <li
-          class="after:aboslute after:-bottom-2 after:left-0 after:block after:h-1 after:bg-primary"
+          class="after:absolute after:-bottom-2 after:left-0 after:block after:h-1 after:w-full after:bg-gradient-to-r after:from-primary after:to-primary after:bg-center after:bg-no-repeat after:bg-[length:0%_100%] hover:after:bg-[length:100%_100%] after:transition-all"
         >
           {{ route.meta.title }}
         </li>
