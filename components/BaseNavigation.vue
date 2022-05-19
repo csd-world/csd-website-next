@@ -56,11 +56,13 @@ const activeRoute = useActiveRoute()
     <ul class="flex space-x-8 font-bold">
       <nuxt-link
         v-for="route in pages"
-        class="opacity-70 hover:opacity-100"
+        class="relative opacity-70 hover:opacity-100"
         :class="{ 'opacity-100': route.path === activeRoute.path }"
         :to="route.path"
       >
-        <li>
+        <li
+          class="after:aboslute after:-bottom-2 after:left-0 after:block after:h-1 after:bg-primary"
+        >
           {{ route.meta.title }}
         </li>
       </nuxt-link>

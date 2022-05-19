@@ -32,10 +32,10 @@ import Atropos from 'atropos/vue'
       class="bg bg-[url('assets/bg/mountain/foreground.svg')]"
     />
     <div
-      class="absolute text-primary inset-0 grid place-content-center space-y-6"
+      class="absolute text-primary inset-0 grid place-content-center space-y-6 px-6"
     >
-      <h1 class="text-3xl font-bold">和我们一起，探索这个世界</h1>
-      <p class="text-lg">
+      <h1 class="text-2xl md:text-3xl font-bold">和我们一起，探索这个世界</h1>
+      <p class="md:text-lg">
         滚滚长江东逝水，浪花淘尽英雄。是非成败转头空，青山依旧在，几度夕阳红。
       </p>
       <div>
@@ -44,7 +44,7 @@ import Atropos from 'atropos/vue'
         >
       </div>
       <div
-        class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-sm"
+        class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-sm"
       >
         <div class="animate-bounce flex flex-col items-center">
           <div class="mb-1">下拉了解更多</div>
