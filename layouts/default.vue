@@ -1,4 +1,4 @@
 <template>
-  <BaseNavigation />
+  <Navigation />
   <slot />
 </template>

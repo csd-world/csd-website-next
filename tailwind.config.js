@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['**/*.vue', '**/*.css'],
+  content: ['**/*.vue', '**/*.css', './nuxt.config.{js,ts}'],
   theme: {
     extend: {
       colors: {
