@@ -13,7 +13,7 @@ import Atropos from 'atropos/vue'
     :shadow-scale="1.15"
     :rotate-x-max="0.5"
     :rotate-y-max="0.5"
-    class="h-full text-center relative"
+    class="h-full  text-center relative"
   >
     <div
       data-atropos-offset="-2"

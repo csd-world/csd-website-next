@@ -11,6 +11,7 @@ module.exports = {
         'primary-background': 'var(--background-primary)',
         'sec-background': 'var(--background-sec)',
         'primary-text': 'var(--color-text-primary)',
+        navigation: 'var(--color-navigation)',
       },
       transitionProperty: {
         height: 'height',

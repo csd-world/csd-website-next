@@ -30,9 +30,16 @@ const patchSlideStore = (value: typeof slideStore['$state']) =>
   slideStore.$patch(value)
 
 function handleSlideChangeStart(swiper: SwiperInstance) {
-  patchSlideStore({
-    activeIndex: swiper.activeIndex,
-  })
+  const activeIndex = swiper.activeIndex
+  if (activeIndex > 0) {
+    slideStore.changeNavigationStyle('negative')
+  } else {
+    slideStore.changeNavigationStyle('primary')
+  }
+  // patchSlideStore({
+  //   activeIndex: swiper.activeIndex,
+  //   navigationStyle: 'default'
+  // })
 }
 </script>
 
@@ -61,9 +68,3 @@ function handleSlideChangeStart(swiper: SwiperInstance) {
     </swiper>
   </div>
 </template>
-
-<style>
-  .swiper-slide {
-    @apply w-full grid place-content-center;
-  }
-</style>

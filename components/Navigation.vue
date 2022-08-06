@@ -9,6 +9,8 @@ import { Maybe } from '~~/types'
 const slideStore = useSlideStore()
 const slideActiveIndex = computed(() => slideStore.$state.activeIndex)
 
+const navigationStyle = computed(() => slideStore.$state.navigationStyle)
+
 const items = shallowRef([
   {
     title: '首页',
@@ -48,16 +50,14 @@ let observer: Maybe<IntersectionObserver> = null
 
 const router = useRouter()
 const routeName = computed(() => router.currentRoute.value.name)
-
-const pages = usePages('navigation')
-const activeRoute = useActiveRoute()
-
-console.log({ pages })
 </script>
 <template>
   <div
     id="navigation"
     ref="navigation"
+    :style="{
+      '--color-navigation': `var(--color-${navigationStyle})`,
+    }"
     class="py-4 sm:pl-5 pr-5 sm:pr-0 w-full justify-end sm:justify-start flex z-[200]"
     :class="{
       'fixed z-[200] sm:left-0': fixed,
@@ -71,7 +71,10 @@ console.log({ pages })
     >
       <!-- Menu Button Start -->
       <div
-        class="bg-primary text-primary h-1 py-2 box-content bg-clip-content w-full relative opacity-100 before:block before:h-1 before:w-full before:absolute before:top-0 before:bg-current after:block after:h-1 after:w-full after:absolute after:bottom-0 after:bg-current before:transition-transform after:transition-transform transition-transform"
+        class="bg-navigation text-navigation h-1 py-2 box-content bg-clip-content w-full relative 
+        opacity-100 before:block before:h-1 before:w-full before:absolute before:top-0 
+        before:bg-current after:block after:h-1 after:w-full after:absolute after:bottom-0 
+        after:bg-current before:transition-transform after:transition-transform transition-transform"
         :class="{
           ['before:translate-y-[8.5px] before:translate-x-0 before:rotate-45  ' +
           'after:translate-y-[-8.5px] after:translate-x-0 after:-rotate-45  ' +
@@ -84,7 +87,7 @@ console.log({ pages })
     </div>
     <!-- Mobile Navigation Background Start -->
     <div
-      class="inset-0 bg-primary h-0 transition-[height,opacity] opacity-0 sm:opacity-100 sm:h-auto sm:inset-auto sm:bg-transparent text-negative sm:text-primary font-bold"
+      class="inset-0 bg-primary h-0 transition-[height,opacity] opacity-0 sm:opacity-100 sm:h-auto sm:inset-auto sm:bg-transparent text-negative sm:text-navigation font-bold"
       :class="{
         '!h-full !opacity-100': open,
         fixed: fixed,
@@ -112,7 +115,7 @@ console.log({ pages })
             :class="{ 'opacity-100': routeName === item.name }"
           >
             <nuxt-link
-              class="after:absolute after:-bottom-0.5 after:left-0 after:block after:h-1 after:w-full after:bg-gradient-to-r after:from-primary after:to-primary after:bg-center after:bg-no-repeat after:bg-[length:0%_100%] hover:after:bg-[length:100%_100%] after:transition-all"
+              class="after:absolute after:-bottom-0.5 after:left-0 after:block after:h-1 after:w-full after:bg-gradient-to-r after:from-navigation after:to-navigation after:bg-center after:bg-no-repeat after:bg-[length:0%_100%] hover:after:bg-[length:100%_100%] after:transition-all"
               :key="item.name"
               :to="item.path"
             >
