@@ -12,6 +12,9 @@ import { CustomPageMeta, Maybe } from '~~/types'
 import { SwiperKey } from '~~/types/symbol'
 import Section1 from '~~/views/index/Section1.vue'
 import Section2 from '../views/index/Section2.vue'
+import Section3 from '../views/index/Section3.vue'
+import Section4 from '~~/views/index/Section4.vue'
+import Section5 from '~~/views/index/Section5.vue'
 
 definePageMeta({
   title: '首页',
@@ -63,8 +66,11 @@ function handleSlideChangeStart(swiper: SwiperInstance) {
       <swiper-slide>
         <Section2 />
       </swiper-slide>
-      <swiper-slide>Slide 3</swiper-slide>
-      <swiper-slide>Slide 4</swiper-slide>
+      <swiper-slide>
+        <Section3 />
+      </swiper-slide>
+      <swiper-slide><Section4 /></swiper-slide>
+      <swiper-slide><Section5 /></swiper-slide>
     </swiper>
   </div>
 </template>
