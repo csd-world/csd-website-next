@@ -12,6 +12,25 @@ module.exports = {
         'sec-background': 'var(--background-sec)',
         'primary-text': 'var(--color-text-primary)',
       },
+      transitionProperty: {
+        height: 'height',
+      },
+      borderRadius: {
+        '1/2': '50%',
+        '1/4': '25%',
+      },
+      padding: {
+        '1/2': '50%',
+        '1/4': '25%',
+        '1/6': '16.667%',
+        '1/8': '12.5%',
+        '1/10': '10%',
+        '1/12': '8.333%',
+        full: '100%',
+      },
+      minWidth: {
+        32: '8rem',
+      },
     },
   },
   plugins: [],

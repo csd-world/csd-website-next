@@ -4,4 +4,7 @@ import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt'],
   css: ['~/style/index.css'],
+  autoImports: {
+    dirs: ['views/**']
+  }
 })
