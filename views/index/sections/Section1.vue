@@ -4,6 +4,25 @@
 >
 import 'atropos/css'
 import Atropos from 'atropos/vue'
+
+import { toRefs } from 'vue'
+import { emitter, navigationEvent } from '~~/utils/emitter';
+
+const props = defineProps<{
+  isActive: boolean
+}>()
+
+const { isActive } = toRefs(props)
+
+watch(isActive, (isActiveValue) => {
+  if (isActiveValue) {
+    emitter.emit(navigationEvent.changeTheme, 'primary')
+  } else {
+
+    emitter.emit(navigationEvent.changeTheme, 'negative')
+  }
+})
+
 </script>
 
 <template>

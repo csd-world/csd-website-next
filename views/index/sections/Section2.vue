@@ -31,7 +31,6 @@ const importFn = () => import('~/assets/json/blogging.json')
         class="absolute px-[40%] py-[30%] inset-0 bg-yellow-50 rounded-1/2"
       ></div>
       <SectionAnimation
-        url="/assets/json/blogging.json"
         v-slot="{ bindRef }"
         :import-fn="importFn"
         :is-active="isActive"

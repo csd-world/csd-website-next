@@ -4,6 +4,7 @@
 >
 import { ref } from 'vue'
 import { Maybe } from '~~/types'
+import { emitter, navigationEvent } from '~~/utils/emitter';
 
 const items = shallowRef([
   {
@@ -44,13 +45,20 @@ let observer: Maybe<IntersectionObserver> = null
 
 const router = useRouter()
 const routeName = computed(() => router.currentRoute.value.name)
+
+const theme = ref('primary')
+emitter.on(navigationEvent.changeTheme, handleChangeTheme)
+
+function handleChangeTheme(themeValue: string) {
+  theme.value = themeValue 
+}
 </script>
 <template>
   <div
     id="navigation"
     ref="navigation"
     :style="{
-      '--color-navigation': `var(--color-primary)`,
+      '--color-navigation': `var(--color-${theme})`,
     }"
     class="py-4 sm:pl-5 pr-5 sm:pr-0 w-full justify-end sm:justify-start flex z-[200]"
     :class="{
