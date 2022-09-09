@@ -6,6 +6,7 @@ export type PageType = 'navigation'
 
 export interface NavigationOptions {
   fixed?: boolean
+  theme?: 'primary' | 'negative'
 }
 
 export type CustomPageMeta = PageMeta & {
