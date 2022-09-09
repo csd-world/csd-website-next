@@ -1,14 +1,10 @@
-<script
-  setup
-  lang="ts"
->
-import { Maybe } from '~~/types'
+<script setup lang="ts">
+import { toRefs } from 'vue'
+const props = defineProps<{
+  isActive: boolean
+}>()
 
-const animationImportFn = () => import('~/assets/json/creative.json')
-
-const animationContainer = ref<Maybe<HTMLElement>>(null)
-
-useSectionAnimation(animationImportFn, animationContainer, 1)
+const { isActive } = toRefs(props)
 </script>
 
 <template>
@@ -25,15 +21,21 @@ useSectionAnimation(animationImportFn, animationContainer, 1)
         <div
           class="absolute h-full w-5/6 bg-yellow-50 rounded-1/2 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
         ></div>
-        <div
-          class="absolute h-[140%] w-[140%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center"
-          ref="animationContainer"
+        <SectionAnimation
+          url="/assets/json/creative.json"
+          v-slot="{ bindRef }"
+          :is-active="isActive"
         >
-          <img
-            src="/creative.webp"
-            alt="Creative"
-          />
-        </div>
+          <div
+            class="absolute h-[140%] w-[140%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center"
+            :ref="bindRef"
+          >
+            <img
+              src="/assets/webp/creative.webp"
+              alt="Creative"
+            />
+          </div>
+        </SectionAnimation>
       </div>
     </div>
     <HeroText
@@ -75,7 +77,7 @@ useSectionAnimation(animationImportFn, animationContainer, 1)
 }
 .triangle:before,
 .triangle:after {
-  content: "";
+  content: '';
   position: absolute;
   background-color: inherit;
   padding: 50%;

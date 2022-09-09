@@ -1,14 +1,10 @@
-<script
-  setup
-  lang="ts"
->
-import { Maybe } from '~~/types'
+<script setup lang="ts">
+import { toRefs } from 'vue'
+const props = defineProps<{
+  isActive: boolean
+}>()
 
-const animationImportFn = () => import('~/assets/json/blogging.json')
-
-const animationContainer = ref<Maybe<HTMLElement>>(null)
-
-useSectionAnimation(animationImportFn, animationContainer, 1)
+const { isActive } = toRefs(props)
 </script>
 
 <template>
@@ -33,15 +29,21 @@ useSectionAnimation(animationImportFn, animationContainer, 1)
       <div
         class="absolute px-[40%] py-[30%] inset-0 bg-yellow-50 rounded-1/2"
       ></div>
-      <div
-        class="transform scale-125"
-        ref="animationContainer"
+      <SectionAnimation
+        url="/assets/json/blogging.json"
+        v-slot="{ bindRef }"
+        :is-active="isActive"
       >
-        <img
-          src="/blogging.webp"
-          alt="Blogging"
-        />
-      </div>
+        <div
+          class="transform scale-125"
+          :ref="bindRef"
+        >
+          <img
+            src="/assets/webp/blogging.webp"
+            alt="Blogging"
+          />
+        </div>
+      </SectionAnimation>
     </div>
   </SectionContainer>
 </template>

@@ -1,7 +1,4 @@
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import '~/style/swiper.css'
@@ -10,11 +7,10 @@ import { Swiper as SwiperInstance } from 'swiper'
 import { useSlideStore } from '~~/store'
 import { CustomPageMeta, Maybe } from '~~/types'
 import { SwiperKey } from '~~/types/symbol'
-import Section1 from '~~/views/index/Section1.vue'
-import Section2 from '../views/index/Section2.vue'
-import Section3 from '../views/index/Section3.vue'
-import Section4 from '~~/views/index/Section4.vue'
-import Section5 from '~~/views/index/Section5.vue'
+import * as Sections from '~~/views/index/sections'
+import { AnimationItem } from 'lottie-web'
+
+const sections = Object.values(Sections)
 
 definePageMeta({
   title: '首页',
@@ -39,10 +35,10 @@ function handleSlideChangeStart(swiper: SwiperInstance) {
   } else {
     slideStore.changeNavigationStyle('primary')
   }
-  // patchSlideStore({
-  //   activeIndex: swiper.activeIndex,
-  //   navigationStyle: 'default'
-  // })
+}
+
+function handleSectionLottieLoaded(animation: AnimationItem) {
+  console.log(animation)
 }
 </script>
 
@@ -60,17 +56,14 @@ function handleSlideChangeStart(swiper: SwiperInstance) {
         clickable: true,
       } as any)"
     >
-      <swiper-slide>
-        <Section1 />
+      <swiper-slide
+        v-for="section in sections"
+        v-slot="{ isActive }"
+      >
+        <component :is="section" v-bind="{
+          isActive
+        }" />
       </swiper-slide>
-      <swiper-slide>
-        <Section2 />
-      </swiper-slide>
-      <swiper-slide>
-        <Section3 />
-      </swiper-slide>
-      <swiper-slide><Section4 /></swiper-slide>
-      <swiper-slide><Section5 /></swiper-slide>
     </swiper>
   </div>
 </template>

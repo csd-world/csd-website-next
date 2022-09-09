@@ -1,23 +1,30 @@
-import { Ref } from 'vue'
+import { Ref, defineEmits } from 'vue'
 import lottie, { AnimationItem } from 'lottie-web'
+import { SwiperKey } from '~~/types/symbol'
 
 export default function useSectionAnimation(
   importFn: () => Promise<{ default: any }>,
   containerRef: Ref<HTMLElement>,
   index: number
 ) {
+
+  const emit = defineEmits<{
+    (e: 'lottie-loaded', animation: AnimationItem)
+  }>()
+
   onMounted(() => {
-    console.log('on mount', containerRef.value)
     importFn()
       .then((importData) => {
         const data = importData.default
         containerRef.value.innerHTML = ''
-        return lottie.loadAnimation({
+        const animation = lottie.loadAnimation({
           container: containerRef.value,
           animationData: data,
           renderer: 'svg',
           autoplay: true,
         })
+        emit('lottie-loaded', animation)
+        return animation
       })
       .catch((e) => {
         throw e
