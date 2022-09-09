@@ -20,14 +20,17 @@ export const mapTheme: (variables: Theme) => MappedTheme = (
 ) => {
   return {
     '--color-primary': variables.primary || '',
-    '--color-primary-lighter':
-      (variables.primary && lighten(variables.primary, 0.3)) || '',
+    '--color-primary-lighter': variables.primaryLighter
+      ? variables.primaryLighter
+      : (variables.primary && lighten(variables.primary, 0.3)) || '',
     '--color-secondary': variables.secondary || '',
     '--color-positive': variables.positive || '',
     '--color-negative': variables.negative || '',
     '--color-text-primary': variables.textPrimary || '',
     '--background-primary': variables.backgroundPrimary || '',
     '--background-sec': variables.backgroundSecondary || '',
+    '--color-section-background': variables.sectionBackground || '',
+    '--color-section-primary': variables.sectionPrimary || '',
   }
 }
 

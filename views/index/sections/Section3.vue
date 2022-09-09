@@ -9,7 +9,7 @@ const importFn = () => import('~/assets/json/creative.json')
 </script>
 
 <template>
-  <SectionContainer>
+  <SectionContainer  class="bg-section-background">
     <div class="triangle triangle1"></div>
     <div class="triangle triangle2"></div>
     <div class="triangle triangle3"></div>

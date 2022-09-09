@@ -9,7 +9,7 @@ const importFn = () => import('~/assets/json/growth.json')
 </script>
 
 <template>
-  <SectionContainer>
+  <SectionContainer class="bg-section-background">
     <div
       class="absolute p-1/6 bg-white bg-opacity-20 rounded-full top-[-18%] sm:left-[-12%] sm:top-[-8%]"
     ></div>

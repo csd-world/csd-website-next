@@ -9,7 +9,7 @@ const importFn = () => import('~/assets/json/blogging.json')
 </script>
 
 <template>
-  <SectionContainer>
+  <SectionContainer class="bg-section-background">
     <div
       class="absolute p-1/8 bg-white bg-opacity-20 rounded-1/4 top-[-35%] left-[65%] sm:top-[-34%] sm:left-[25%]"
     ></div>

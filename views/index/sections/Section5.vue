@@ -1,14 +1,14 @@
 <template>
-  <SectionContainer>
+  <SectionContainer class="bg-section-background">
     <div class="relative max-w-xl lg:max-w-2xl mx-auto">
       <div
-        class="absolute p-1/4 sm:p-1/6 bg-primary rounded-1/4 rotate-[33deg] right-0 top-0 translate-x-[33%] translate-y-[-33%]"
+        class="absolute p-1/4 sm:p-1/6 bg-section-primary rounded-1/4 rotate-[33deg] right-0 top-0 translate-x-[33%] translate-y-[-33%]"
       />
       <div
-        class="absolute p-1/4 sm:p-1/6 bg-primary rounded-full right-0 bottom-0 translate-x-[44%] translate-y-[33%]"
+        class="absolute p-1/4 sm:p-1/6 bg-section-primary rounded-full right-0 bottom-0 translate-x-[44%] translate-y-[33%]"
       />
       <div
-        class="triangle p-1/6 sm:p-1/8 !bg-primary !opacity-100 top-1/2 -translate-y-1/2 translate-x-[-33%]"
+        class="triangle p-1/6 sm:p-1/8 !bg-section-primary !opacity-100 top-1/2 -translate-y-1/2 translate-x-[-33%]"
       ></div>
       <div class="absolute inset-0 backdrop-blur-lg"></div>
       <div
@@ -30,7 +30,7 @@
           />
         </div>
         <div>
-          <BaseButton class="bg-primary">
+          <BaseButton class="bg-section-primary">
             <span class="iconfont icon-QQ mr-1" /><span>加入群聊</span>
           </BaseButton>
         </div>

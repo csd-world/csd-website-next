@@ -1,6 +1,6 @@
-.swiper-slide {
+/* .swiper-slide {
   @apply bg-primary-background;
-}
+} */
 
 .swiper-wrapper {
   transition-duration: 700ms !important;
