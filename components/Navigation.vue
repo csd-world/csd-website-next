@@ -3,13 +3,7 @@
   lang="ts"
 >
 import { ref } from 'vue'
-import { useSlideStore } from '~~/store'
 import { Maybe } from '~~/types'
-
-const slideStore = useSlideStore()
-const slideActiveIndex = computed(() => slideStore.$state.activeIndex)
-
-const navigationStyle = computed(() => slideStore.$state.navigationStyle)
 
 const items = shallowRef([
   {
@@ -56,7 +50,7 @@ const routeName = computed(() => router.currentRoute.value.name)
     id="navigation"
     ref="navigation"
     :style="{
-      '--color-navigation': `var(--color-${navigationStyle})`,
+      '--color-navigation': `var(--color-primary)`,
     }"
     class="py-4 sm:pl-5 pr-5 sm:pr-0 w-full justify-end sm:justify-start flex z-[200]"
     :class="{
