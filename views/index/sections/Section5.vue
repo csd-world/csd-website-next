@@ -37,5 +37,5 @@
       </div>
     </div>
   </SectionContainer>
-  <Footer />
+  <SectionFooter />
 </template>

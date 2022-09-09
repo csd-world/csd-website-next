@@ -31,6 +31,7 @@ const open = ref(false)
 const nav = ref(null)
 const sticking = ref(false)
 const fixed = ref(true)
+const theme = ref('primary')
 
 let observer: Maybe<IntersectionObserver> = null
 
@@ -42,14 +43,17 @@ watch(
   route,
   () => {
     const pageMeta: CustomPageMeta = route.meta
-    fixed.value = Boolean(pageMeta.navigationOptions?.fixed)
+    const navigationOptions = pageMeta.navigationOptions
+    fixed.value = Boolean(navigationOptions?.fixed)
+    if (navigationOptions?.theme) {
+      theme.value = navigationOptions.theme
+    }
   },
   {
     immediate: true,
   }
 )
 
-const theme = ref('primary')
 emitter.on(navigationEvent.changeTheme, handleChangeTheme)
 
 function handleChangeTheme(themeValue: string) {
@@ -63,7 +67,7 @@ function handleChangeTheme(themeValue: string) {
     :style="{
       '--color-navigation': `var(--color-${theme})`,
     }"
-    class="py-4 sm:pl-5 pr-5 sm:pr-0 w-full justify-end sm:justify-start flex z-[200]"
+    class="py-4 sm:pl-5 pr-5 sm:pr-0 w-full justify-end sm:justify-start flex z-[200] overflow-x-hidden"
     :class="{
       'fixed z-[200] sm:left-0': fixed,
       ' sm:self-stretch': !fixed,
