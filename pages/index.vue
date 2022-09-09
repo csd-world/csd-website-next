@@ -11,7 +11,9 @@ const sections = Object.values(Sections)
 definePageMeta({
   title: '首页',
   type: 'navigation',
-  key: 0,
+  navigationOptions: {
+    fixed: true
+  }
 } as CustomPageMeta)
 
 const modules = [Pagination, Mousewheel]

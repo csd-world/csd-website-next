@@ -3,12 +3,18 @@
   lang="ts"
 >
 import { CustomPageMeta } from '~~/types'
+import { emitter, navigationEvent } from '~~/utils/emitter';
 
 definePageMeta({
   title: '方向',
-  type: 'navigation',
-  key: 1
+  navigationOptions: {
+    fixed: false
+  }
 } as CustomPageMeta)
+
+onMounted(() => {
+  emitter.emit(navigationEvent.changeTheme, 'negative')
+})
 </script>
 
 <template>

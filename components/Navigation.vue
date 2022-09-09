@@ -1,10 +1,7 @@
-<script
-  setup
-  lang="ts"
->
-import { ref } from 'vue'
-import { Maybe } from '~~/types'
-import { emitter, navigationEvent } from '~~/utils/emitter';
+<script setup lang="ts">
+import { ref, watch } from 'vue'
+import { CustomPageMeta, Maybe } from '~~/types'
+import { emitter, navigationEvent } from '~~/utils/emitter'
 
 const items = shallowRef([
   {
@@ -29,28 +26,34 @@ const items = shallowRef([
   },
 ])
 
-const props = defineProps({
-  fixed: {
-    default: true,
-    required: true,
-  },
-})
-
 const navigation = ref<Maybe<HTMLElement>>(null)
 const open = ref(false)
 const nav = ref(null)
 const sticking = ref(false)
+const fixed = ref(true)
 
 let observer: Maybe<IntersectionObserver> = null
 
 const router = useRouter()
 const routeName = computed(() => router.currentRoute.value.name)
 
+const route = useRoute()
+watch(
+  route,
+  () => {
+    const pageMeta: CustomPageMeta = route.meta
+    fixed.value = Boolean(pageMeta.navigationOptions?.fixed)
+  },
+  {
+    immediate: true,
+  }
+)
+
 const theme = ref('primary')
 emitter.on(navigationEvent.changeTheme, handleChangeTheme)
 
 function handleChangeTheme(themeValue: string) {
-  theme.value = themeValue 
+  theme.value = themeValue
 }
 </script>
 <template>
@@ -73,10 +76,7 @@ function handleChangeTheme(themeValue: string) {
     >
       <!-- Menu Button Start -->
       <div
-        class="bg-navigation text-navigation h-1 py-2 box-content bg-clip-content w-full relative 
-        opacity-100 before:block before:h-1 before:w-full before:absolute before:top-0 
-        before:bg-current after:block after:h-1 after:w-full after:absolute after:bottom-0 
-        after:bg-current before:transition-transform after:transition-transform transition-transform"
+        class="bg-navigation text-navigation h-1 py-2 box-content bg-clip-content w-full relative opacity-100 before:block before:h-1 before:w-full before:absolute before:top-0 before:bg-current after:block after:h-1 after:w-full after:absolute after:bottom-0 after:bg-current before:transition-transform after:transition-transform transition-transform"
         :class="{
           ['before:translate-y-[8.5px] before:translate-x-0 before:rotate-45  ' +
           'after:translate-y-[-8.5px] after:translate-x-0 after:-rotate-45  ' +

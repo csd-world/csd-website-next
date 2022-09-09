@@ -4,7 +4,14 @@ export type Maybe<T> = T | null | undefined
 
 export type PageType = 'navigation'
 
-export type CustomPageMeta = PageMeta | {
-  type: PageType
-  navigationClasses?: string
+export interface NavigationOptions {
+  fixed?: boolean
 }
+
+export type CustomPageMeta = PageMeta & {
+  navigationOptions?: NavigationOptions
+}
+// | {
+//   type: PageType
+//   navigationClasses?: string
+// }
