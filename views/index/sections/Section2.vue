@@ -5,6 +5,7 @@ const props = defineProps<{
 }>()
 
 const { isActive } = toRefs(props)
+const importFn = () => import('~/assets/json/blogging.json')
 </script>
 
 <template>
@@ -32,6 +33,7 @@ const { isActive } = toRefs(props)
       <SectionAnimation
         url="/assets/json/blogging.json"
         v-slot="{ bindRef }"
+        :import-fn="importFn"
         :is-active="isActive"
       >
         <div

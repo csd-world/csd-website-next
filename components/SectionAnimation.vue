@@ -4,13 +4,12 @@ import lottie, { AnimationItem } from 'lottie-web'
 import { Maybe } from '~~/types'
 
 const props = defineProps<{
-  url: `/assets/json/${string}.json`
+  importFn: () => Promise<any>
   isActive: boolean
 }>()
 
-const { url } = props
+const { importFn } = props
 const { isActive } = toRefs(props)
-const importFn = () => import(/* @vite-ignore */ url)
 
 let isPlaying = false
 let containerEl: Maybe<HTMLElement> = null
