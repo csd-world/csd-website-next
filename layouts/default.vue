@@ -1,4 +1,6 @@
 <template>
-  <Navigation />
-  <slot />
+  <div class="default-layout">
+    <Navigation />
+    <slot />
+  </div>
 </template>

@@ -3,6 +3,7 @@ import { CustomPageMeta } from '~~/types'
 
 definePageMeta({
   title: '方向',
+  layout: 'page',
   navigationOptions: {
     fixed: false,
     theme: 'negative',
@@ -46,7 +47,7 @@ const directions = [
 </script>
 
 <template>
-  <div class="container mx-auto px-4">
+  <div>
     <div class="flex mb-4 text-white">
       <div class="flex flex-col justify-center space-y-4">
         <h1 class="font-semibold text-shadow-md text-2xl">方向介绍</h1>
@@ -82,6 +83,5 @@ const directions = [
             class=" px-3 py-2 rounded-lg">了解更多</button> -->
       </div>
     </div>
-    <Footer />
   </div>
 </template>

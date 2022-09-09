@@ -1,3 +1,9 @@
+<script>
+export default {
+  inheritAttrs: false,
+}
+</script>
+
 <template>
   <SectionContainer class="bg-section-background">
     <div class="relative max-w-xl lg:max-w-2xl mx-auto">
