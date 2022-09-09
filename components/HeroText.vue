@@ -4,7 +4,7 @@
 >
 const props = defineProps<{
   title: string
-  content: string
+  content?: string
 }>()
 
 const { title, content } = toRefs(props)
@@ -17,7 +17,7 @@ const { title, content } = toRefs(props)
     >
       {{ title }}
     </h2>
-    <p class="text-shadow-md">
+    <p v-if="content" class="text-shadow-md">
       {{ content }}
     </p>
   </div>

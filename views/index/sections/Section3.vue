@@ -70,32 +70,5 @@ const importFn = () => import('~/assets/json/creative.json')
   transform: rotate(-45deg) skewX(-30deg) scale(1, 0.866);
   @apply right-[77%] top-[-8%] sm:right-[83%] sm:top-[-15%];
 }
-.triangle {
-  background: white;
-  text-align: left;
-  opacity: 0.2;
-  @apply absolute z-0;
-}
-.triangle:before,
-.triangle:after {
-  content: '';
-  position: absolute;
-  background-color: inherit;
-  padding: 50%;
-  top: 0;
-  left: 0;
-}
-.triangle,
-.triangle:before,
-.triangle:after {
-  border-top-right-radius: 30%;
-}
 
-.triangle:before {
-  transform: rotate(-135deg) skewX(-45deg) scale(1.414, 0.707)
-    translate(0, -50%);
-}
-.triangle:after {
-  transform: rotate(135deg) skewY(-45deg) scale(0.707, 1.414) translate(50%);
-}
 </style>
