@@ -10,7 +10,7 @@ html {
 }
 
 body {
-  @apply bg-primary-background;
+  @apply bg-primary-background h-full;
 }
 
 @media screen and (min-width: 48em) {
@@ -40,7 +40,7 @@ body {
 }
 .triangle:before,
 .triangle:after {
-  content: "";
+  content: '';
   position: absolute;
   background-color: inherit;
   padding: 50%;

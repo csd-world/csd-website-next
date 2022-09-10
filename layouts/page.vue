@@ -23,7 +23,7 @@ watch(
     :class="bgColor ? bgColor : ''"
   >
     <Navigation />
-    <div class="container mx-auto px-4">
+    <div class="container mx-auto px-4 pb-8">
       <slot />
       <Footer />
     </div>

@@ -17,13 +17,29 @@ definePageMeta({
 } as CustomPageMeta)
 
 const modules = [Pagination, Mousewheel]
+
+const innerHeight = ref(0)
+
+onMounted(() => {
+  innerHeight.value = window.innerHeight
+  window.addEventListener('resize', handleWindowResize)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleWindowResize)
+})
+
+function handleWindowResize() {
+  innerHeight.value = window.innerHeight
+}
 </script>
 
 <template>
-  <div class="h-screen text-white">
+  <div class="h-full text-white">
     <swiper
       wrapper-tag="main"
-      class="h-full w-full"
+      class="w-full h-full"
+      :height="innerHeight"
       :direction="'vertical'"
       :simulate-touch="false"
       :modules="modules"
@@ -35,6 +51,7 @@ const modules = [Pagination, Mousewheel]
       <swiper-slide
         v-for="section in sections"
         v-slot="{ isActive }"
+        class="h-full"
       >
         <component
           :is="section"
