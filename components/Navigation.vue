@@ -57,7 +57,7 @@ function handleChangeTheme(themeValue: string) {
     :style="{
       '--color-navigation': `var(--color-${theme})`,
     }"
-    class="py-4 sm:pl-5 pr-5 sm:pr-0 w-full justify-end sm:justify-start flex z-[200] overflow-x-hidden"
+    class="py-4 sm:px-0 pr-5 w-full justify-end sm:justify-start flex z-[200] overflow-x-hidden"
     :class="{
       'fixed z-[200] sm:left-0': fixed,
       ' sm:self-stretch': !fixed,
@@ -87,13 +87,14 @@ function handleChangeTheme(themeValue: string) {
       class="inset-0 bg-primary h-0 transition-[height,opacity] opacity-0 sm:opacity-100 sm:h-auto sm:inset-auto sm:bg-transparent text-negative sm:text-navigation font-bold"
       :class="{
         '!h-full !opacity-100': open,
-        fixed: fixed,
+        'fixed sm:left-0': fixed,
         'fixed sm:static z-[100]': !fixed,
+        [bgColor ? bgColor : '']: true,
       }"
     >
       <!-- Mobile Navigation Background End -->
       <div
-        class="absolute top-1/2 transform -translate-y-1/2 w-screen text-shadow-md flex-col items-center space-y-4 hidden sm:flex sm:flex-row sm:space-y-0 sm:static sm:translate-y-0"
+        class="absolute top-1/2 transform -translate-y-1/2 w-screen text-shadow-md flex-col items-center space-y-4 hidden sm:flex sm:flex-row sm:space-y-0 sm:static sm:translate-y-0 sm:px-5"
         :class="{ '!flex': open }"
       >
         <div class="sm:flex-1 sm:h-8 flex items-center flex-col sm:flex-row">

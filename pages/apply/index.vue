@@ -29,7 +29,7 @@ const tabs = {
 
 type TabKey = keyof typeof tabs
 
-const activeTabKey = ref<TabKey>('grade-two')
+const activeTabKey = ref<TabKey>('grade-one')
 
 function handleTabClick(key: TabKey) {
   activeTabKey.value = key
