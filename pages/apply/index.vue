@@ -80,7 +80,7 @@ function handleTabClick(key: TabKey) {
 </template>
 
 <style lang="postcss">
-body {
+:global(body) {
   @apply !bg-gray-200;
 }
 </style>
