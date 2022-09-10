@@ -9,7 +9,6 @@ import * as Sections from '~~/views/index/sections'
 const sections = Object.values(Sections)
 
 definePageMeta({
-  title: '首页',
   layout: 'default',
   type: 'navigation',
   navigationOptions: {
