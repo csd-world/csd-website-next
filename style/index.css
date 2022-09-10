@@ -1,4 +1,8 @@
-@import url('https://fonts.loli.net/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap');
+@font-face {
+  font-family: 'Noto Sans SC';
+  src: url('https://fonts.loli.net/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap');
+  font-display: swap;
+}
 
 html {
   font-size: 1.125em;
