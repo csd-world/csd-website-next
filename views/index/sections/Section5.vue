@@ -24,6 +24,7 @@ export default {
           class="relative w-[110%] left-1/2 -translate-x-1/2 before:absolute before:px-1/2 before:py-1/4 sm:before:px-1/4 sm:before:py-1/6 before:rounded-1/2 before:bg-yellow-50 before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2"
         >
           <img
+            loading="lazy"
             src="/assets/svg/welcome.svg"
             class="sm:w-3/5 mx-auto relative"
             alt=""

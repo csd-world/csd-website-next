@@ -9,7 +9,7 @@ const importFn = () => import('~/assets/json/creative.json')
 </script>
 
 <template>
-  <SectionContainer  class="bg-section-background">
+  <SectionContainer class="bg-section-background">
     <div class="triangle triangle1"></div>
     <div class="triangle triangle2"></div>
     <div class="triangle triangle3"></div>
@@ -32,6 +32,7 @@ const importFn = () => import('~/assets/json/creative.json')
             :ref="bindRef"
           >
             <img
+              loading="lazy"
               src="/assets/webp/creative.webp"
               alt="Creative"
             />
@@ -70,5 +71,4 @@ const importFn = () => import('~/assets/json/creative.json')
   transform: rotate(-45deg) skewX(-30deg) scale(1, 0.866);
   @apply right-[77%] top-[-8%] sm:right-[83%] sm:top-[-15%];
 }
-
 </style>

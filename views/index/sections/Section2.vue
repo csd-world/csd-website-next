@@ -40,6 +40,7 @@ const importFn = () => import('~/assets/json/blogging.json')
           :ref="bindRef"
         >
           <img
+            loading="lazy"
             src="/assets/webp/blogging.webp"
             alt="Blogging"
           />

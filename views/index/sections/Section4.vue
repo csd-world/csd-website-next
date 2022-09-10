@@ -44,6 +44,7 @@ const importFn = () => import('~/assets/json/growth.json')
             :ref="bindRef"
           >
             <img
+            loading="lazy"
               src="/assets/webp/growth.webp"
               alt="Growth"
             />
