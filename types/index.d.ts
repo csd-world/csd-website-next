@@ -29,5 +29,5 @@ export interface FormModel {
   applyReason: string
   grade: number
   experience?: string
-  direction?: 'web' | 'game' | 'ai' | 'mobile'
+  direction?: 'web' | 'game' | 'ai' | 'mobile' | ''
 }

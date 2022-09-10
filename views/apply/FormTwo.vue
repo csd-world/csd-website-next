@@ -1,16 +1,20 @@
 <script setup lang="ts">
 import { Form } from 'vee-validate'
+import { FormModel } from '~~/types'
 
-const isLoading = ref(false)
-const form = reactive({
-  selfIntro: '',
+const form = reactive<FormModel>({
   studentId: '',
-  studentName: '',
-  whyJoin: '',
+  name: '',
   qq: '',
   email: '',
+  hadExperience: false,
+  applyReason: '',
+  grade: 2,
+  experience: '',
   direction: '',
 })
+
+const { isLoading, handleSubmit } = useSubmitForm(form)
 
 const directionOptions = [
   {
@@ -30,10 +34,6 @@ const directionOptions = [
     value: 'mobile',
   },
 ]
-
-function handleSubmit(value) {
-  console.log('fronz ~ handleSubmit ~ value', value)
-}
 </script>
 
 <template>
@@ -47,16 +47,16 @@ function handleSubmit(value) {
       <div class="input-row">
         <BaseInput
           v-model="form.studentId"
-          :name="'stdId'"
+          :name="'studentId'"
           :rules="'required|gradeTwo'"
           class="col-span-1"
           :label="'学号'"
           :type="'number'"
         />
         <BaseInput
-          v-model="form.studentName"
+          v-model="form.name"
           :rules="'required|name'"
-          :name="'stdName'"
+          :name="'name'"
           :label="'姓名'"
           :type="'text'"
         />
@@ -88,13 +88,13 @@ function handleSubmit(value) {
         />
       </div>
       <BaseTextarea
-        v-model="form.selfIntro"
+        v-model="form.experience"
         :rules="'required'"
-        :name="'prgExp'"
+        :name="'experience'"
         :label="'聊聊你学过的东西，以及参与过的项目'"
       />
       <BaseTextarea
-        v-model="form.whyJoin"
+        v-model="form.applyReason"
         :rules="'required'"
         :name="'applyReason'"
         :label="'说说你为什么想加入软件部'"

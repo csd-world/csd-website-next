@@ -3,25 +3,17 @@ import { Form } from 'vee-validate'
 import { FormModel } from '~~/types'
 
 const form = reactive<FormModel>({
-  // studentId: '',
-  // name: '',
-  // qq: '',
-  // email: '',
-  // hadExperience: false,
-  // applyReason: '',
-  // grade: 1,
-  // experience: '',
-  studentId: '220000',
-  name: '测试',
-  qq: '123412',
-  email: 'z233@msn.com',
+  studentId: '',
+  name: '',
+  qq: '',
+  email: '',
   hadExperience: false,
-  applyReason: '2444',
+  applyReason: '',
   grade: 1,
   experience: '',
 })
 
-const { handleSubmit, isLoading } = useSubmitForm()
+const { handleSubmit, isLoading } = useSubmitForm(form)
 </script>
 
 <template>

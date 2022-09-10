@@ -1,16 +1,18 @@
+import { Ref } from 'vue'
 import { useToast, POSITION } from 'vue-toastification'
+import { FormModel } from '~~/types'
 
-export default function useSubmitForm() {
+export default function useSubmitForm(form: FormModel) {
   const isLoading = ref(false)
   const toast = useToast()
   const router = useRouter()
 
-  async function handleSubmit(value: any) {
+  async function handleSubmit() {
     isLoading.value = true
     const response = await $fetch('/api/form', {
       method: 'POST',
       body: {
-        data: value,
+        data: form,
       },
     })
       .catch((e) => {
@@ -25,7 +27,6 @@ export default function useSubmitForm() {
         router.push('/apply/success')
       })
 
-    console.log('fronz ~ handleSubmit ~ response', response)
     isLoading.value = false
   }
 
