@@ -1,6 +1,16 @@
+<script setup lang="ts">
+const props = defineProps<{
+  textStyle?: `text-${string}`
+  bgStyle?: `bg-${string}`
+}>()
+
+const { textStyle, bgStyle } = props
+</script>
+
 <template>
   <div
-    class="grid gap-6 grid-cols-2 sm:grid-cols-4 sm:gap-12 mt-16 text-white text-sm pb-12 px-4 sm:px-0"
+    class="grid gap-6 grid-cols-2 sm:grid-cols-4 sm:gap-12 mt-16 text-white text-sm py-8 px-8 rounded-2xl"
+    :class="[textStyle, bgStyle]"
   >
     <div class="col-span-2 sm:col-auto">
       <div class="flex items-center">

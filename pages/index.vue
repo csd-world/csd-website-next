@@ -10,14 +10,14 @@ const sections = Object.values(Sections)
 
 definePageMeta({
   title: '首页',
+  layout: 'default',
   type: 'navigation',
   navigationOptions: {
-    fixed: true
-  }
+    fixed: true,
+  },
 } as CustomPageMeta)
 
 const modules = [Pagination, Mousewheel]
-
 </script>
 
 <template>
@@ -37,9 +37,12 @@ const modules = [Pagination, Mousewheel]
         v-for="section in sections"
         v-slot="{ isActive }"
       >
-        <component :is="section" v-bind="{
-          isActive
-        }" />
+        <component
+          :is="section"
+          v-bind="{
+            isActive,
+          }"
+        />
       </swiper-slide>
     </swiper>
   </div>

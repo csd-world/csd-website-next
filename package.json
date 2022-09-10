@@ -17,6 +17,7 @@
     "color": "^4.2.3",
     "lottie-web": "^5.9.6",
     "mitt": "^3.0.0",
-    "swiper": "^8.1.4"
+    "swiper": "^8.1.4",
+    "vee-validate": "^4.6.7"
   }
 }

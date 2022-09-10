@@ -1,0 +1,36 @@
+.input-row {
+  @apply grid sm:grid-cols-2 gap-4 sm:gap-12 sm:max-w-md;
+}
+.submit.loading {
+  @apply bg-primary-lighter disabled:bg-primary-lighter;
+}
+
+.submit {
+  @apply bg-section-primary py-2 px-3 rounded-lg hover:bg-primary-lighter disabled:bg-gray-300 disabled:cursor-not-allowed;
+}
+
+h3 {
+  @apply text-2xl mb-2 font-semibold;
+}
+
+.form {
+  @apply bg-white p-6 space-y-4 sm:col-span-2 mt-4 sm:mt-0 rounded-lg mb-4 sm:rounded-b-lg sm:rounded-t-none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+label.required::before {
+  @apply text-red-600;
+  content: '*';
+  margin-right: 4px;
+}

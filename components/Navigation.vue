@@ -25,8 +25,10 @@ const navigation = ref<Maybe<HTMLElement>>(null)
 const open = ref(false)
 const nav = ref(null)
 const sticking = ref(false)
+
 const fixed = ref(true)
 const theme = ref('primary')
+const bgColor = ref('')
 
 let observer: Maybe<IntersectionObserver> = null
 
@@ -40,9 +42,8 @@ watch(
     const pageMeta: CustomPageMeta = route.meta
     const navigationOptions = pageMeta.navigationOptions
     fixed.value = Boolean(navigationOptions?.fixed)
-    if (navigationOptions?.theme) {
-      theme.value = navigationOptions.theme
-    }
+    theme.value = navigationOptions?.theme ?? navigationOptions.theme
+    bgColor.value = navigationOptions?.bgColor ?? navigationOptions.bgColor
   },
   {
     immediate: true,
@@ -67,6 +68,7 @@ function handleChangeTheme(themeValue: string) {
       'fixed z-[200] sm:left-0': fixed,
       ' sm:self-stretch': !fixed,
       ' sticky top-0 sm:static sm:top-auto': sticking && !fixed,
+      [bgColor ? bgColor : '']: true,
     }"
   >
     <div
