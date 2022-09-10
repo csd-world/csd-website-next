@@ -23,17 +23,11 @@ const items = shallowRef([
 
 const navigation = ref<Maybe<HTMLElement>>(null)
 const open = ref(false)
-const nav = ref(null)
 const sticking = ref(false)
 
 const fixed = ref(true)
 const theme = ref('primary')
 const bgColor = ref('')
-
-let observer: Maybe<IntersectionObserver> = null
-
-const router = useRouter()
-const routeName = computed(() => router.currentRoute.value.name)
 
 const route = useRoute()
 watch(
@@ -112,13 +106,10 @@ function handleChangeTheme(themeValue: string) {
         <ul
           class="flex flex-col sm:flex-1 sm:flex-row sm:space-x-8 sm:justify-center"
         >
-          <li
-            v-for="item in items"
-            class="relative h-8 inline-block opacity-70 hover:opacity-100 whitespace-nowrap"
-            :class="{ 'opacity-100': routeName === item.name }"
-          >
+          <li v-for="item in items">
             <nuxt-link
-              class="after:absolute after:-bottom-0.5 after:left-0 after:block after:h-1 after:w-full after:bg-gradient-to-r after:from-navigation after:to-navigation after:bg-center after:bg-no-repeat after:bg-[length:0%_100%] hover:after:bg-[length:100%_100%] after:transition-all"
+              class="relative h-8 inline-block opacity-70 hover:opacity-100 whitespace-nowrap after:absolute after:-bottom-0.5 after:left-0 after:block after:h-1 after:w-full after:bg-gradient-to-r after:from-navigation after:to-navigation after:bg-center after:bg-no-repeat after:bg-[length:0%_100%] hover:after:bg-[length:100%_100%] after:transition-all"
+              :active-class="'!opacity-100'"
               :key="item.name"
               :to="item.path"
             >
