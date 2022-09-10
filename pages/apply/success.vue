@@ -7,6 +7,9 @@ import { ConfettiConfiguration } from 'party-js/lib/templates/confetti'
 definePageMeta({
   title: '报名成功',
   layout: 'blank',
+  pageTransition: {
+    name: 'fade',
+  },
   navigationOptions: {
     fixed: false,
     theme: 'negative',
@@ -54,7 +57,10 @@ onMounted(() => {
           ref="source2"
           class="absolute right-0 top-0"
         ></div>
-        <div ref="animationContainer"></div>
+        <div
+          ref="animationContainer"
+          class="aspect-[16/9]"
+        ></div>
         <h3 class="text-section-primary text-2xl font-semibold">报名成功！</h3>
         <div>
           <p>我们已经收到了你的报名表，很高兴认识你！</p>
@@ -62,13 +68,19 @@ onMounted(() => {
         </div>
         <div class="space-x-4 whitespace-nowrap">
           <BaseButton class="bg-section-primary text-white rounded-full">
-            <nuxt-link to="/">
+            <nuxt-link
+              to="/"
+              class="flex items-center"
+            >
               <span class="iconfont icon-home mr-1" />回到首页
             </nuxt-link>
           </BaseButton>
           <BaseButton class="bg-section-primary text-white rounded-full">
-            <nuxt-link to="https://oj.dsstudio.tech/problem">
-              <span class="iconfont icon-link mr-1 text-sm" />开始练习
+            <nuxt-link
+              to="https://oj.dsstudio.tech/problem"
+              class="flex items-center"
+            >
+              <span class="iconfont icon-link mr-1 text-[0.8rem]" />开始练习
             </nuxt-link>
           </BaseButton>
         </div>
@@ -76,47 +88,16 @@ onMounted(() => {
     </div>
   </div>
 </template>
-<!-- 
-<script lang="ts">
-import lottie, { AnimationItem } from 'lottie-web'
-import { Component, Vue, Ref } from 'nuxt-property-decorator'
-import party from 'party-js'
-import { ConfettiConfiguration } from 'party-js/lib/templates/confetti'
-import { CustomPageMeta } from '~~/types'
 
-const animationData = () => import('~/assets/json/success.json' as any)
-
-@Component
-class SuccessPage extends Vue {
-  @Ref('animation') readonly container!: HTMLElement
-  @Ref('card') readonly card!: HTMLElement
-  @Ref('source1') readonly source1!: HTMLElement
-  @Ref('source2') readonly source2!: HTMLElement
-
-  private anim: null | AnimationItem = null
-  mounted() {
-    animationData().then((data) => {
-      this.anim = lottie.loadAnimation({
-        container: this.container,
-        animationData: data,
-        renderer: 'svg',
-        autoplay: true,
-      })
-      setTimeout(() => {
-        const option: Partial<ConfettiConfiguration> = {
-          spread: 20,
-        }
-        party.confetti(this.source1, option)
-        party.confetti(this.source2, option)
-      }, 300)
-    })
-  }
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.6s ease;
 }
-</script> -->
 
-<style lang="postcss">
-.practice .iconfont {
-  font-size: 0.8rem;
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
 
