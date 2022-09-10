@@ -69,6 +69,6 @@ const importFn = () => import('~/assets/json/creative.json')
 .triangle4 {
   padding: 5%;
   transform: rotate(-45deg) skewX(-30deg) scale(1, 0.866);
-  @apply right-[77%] top-[-8%] sm:right-[83%] sm:top-[-15%];
+  @apply right-[73%] top-[-10%] sm:right-[81%] sm:top-[-21%];
 }
 </style>

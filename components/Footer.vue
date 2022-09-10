@@ -9,7 +9,7 @@ const { textStyle, bgStyle } = props
 
 <template>
   <div
-    class="grid gap-6 grid-cols-2 sm:grid-cols-4 sm:gap-12 mt-16 text-white text-sm py-8 px-8 rounded-2xl"
+    class="grid gap-6 grid-cols-2 sm:grid-cols-4 sm:gap-12 mt-8 sm:mt-16 text-white text-sm py-8 px-8 rounded-2xl"
     :class="[textStyle, bgStyle]"
   >
     <div class="col-span-2 sm:col-auto">

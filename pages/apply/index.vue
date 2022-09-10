@@ -37,7 +37,7 @@ function handleTabClick(key: TabKey) {
 </script>
 
 <template>
-  <div class="relative bg-gray-200 flex flex-col items-center text-white pb-8">
+  <div class="relative bg-gray-200 flex flex-col items-center text-white pb-8 min-h-screen">
     <div class="flex flex-col items-center bg-section-primary w-full">
       <Navigation />
       <div class="container">
