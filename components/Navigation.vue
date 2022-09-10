@@ -36,8 +36,8 @@ watch(
     const pageMeta: CustomPageMeta = route.meta
     const navigationOptions = pageMeta.navigationOptions
     fixed.value = Boolean(navigationOptions?.fixed)
-    theme.value = navigationOptions?.theme ?? navigationOptions.theme
-    bgColor.value = navigationOptions?.bgColor ?? navigationOptions.bgColor
+    theme.value = navigationOptions?.theme ? navigationOptions.theme : 'primary'
+    bgColor.value = navigationOptions?.bgColor ? navigationOptions.bgColor : ''
   },
   {
     immediate: true,

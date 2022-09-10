@@ -7,10 +7,21 @@
 html {
   font-size: 1.125em;
   font-family: 'Noto Sans SC', sans-serif;
+  height: 100%;
+}
+
+#__nuxt {
+  height: 100%;
 }
 
 body {
-  @apply bg-primary-background h-full;
+  @apply bg-primary-background h-full w-screen overflow-x-hidden;
+}
+
+@supports (overflow-x: clip) {
+  body {
+    overflow-x: clip;
+  }
 }
 
 @media screen and (min-width: 48em) {

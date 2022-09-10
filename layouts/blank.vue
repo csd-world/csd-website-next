@@ -1,3 +1,3 @@
 <template>
-  <div class="blank-layout"><slot /></div>
+  <div class="blank-layout h-full"><slot /></div>
 </template>

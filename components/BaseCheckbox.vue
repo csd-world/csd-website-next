@@ -7,9 +7,8 @@
     >
     <div class="relative rounded">
       <input
-        :value="inputValue"
+        v-model="inputValue"
         :name="name"
-        @input="handleChange"
         @blur="handleBlur"
         type="checkbox"
         class="absolute inset-0 w-4 h-4 opacity-0"
@@ -54,12 +53,9 @@ const props = defineProps<{
 
 const { modelValue, name } = props
 
-const {
-  value: inputValue,
-  handleChange,
-  handleBlur,
-} = useField(name, undefined, {
+const { value: inputValue, handleBlur } = useField(name, undefined, {
   initialValue: modelValue,
+  type: 'checkbox',
 })
 </script>
 

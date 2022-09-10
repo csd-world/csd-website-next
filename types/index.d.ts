@@ -12,9 +12,22 @@ export interface NavigationOptions {
 
 export interface LayoutOptions {
   bgColor?: `bg-${string}`
+  withFooter?: boolean
 }
 
 export type CustomPageMeta = PageMeta & {
   navigationOptions?: NavigationOptions
   layoutOptions?: LayoutOptions
+}
+
+export interface FormModel {
+  studentId: string
+  name: string
+  qq: string
+  email: string
+  hadExperience: boolean
+  applyReason: string
+  grade: number
+  experience?: string
+  direction?: 'web' | 'game' | 'ai' | 'mobile'
 }

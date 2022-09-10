@@ -7,4 +7,8 @@ export default defineNuxtConfig({
   autoImports: {
     dirs: ['views/**'],
   },
+  runtimeConfig: {
+    apiBase: '',
+    apiToken: '',
+  }
 })

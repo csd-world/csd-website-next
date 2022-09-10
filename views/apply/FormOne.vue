@@ -1,20 +1,27 @@
 <script setup lang="ts">
-import { Form, } from 'vee-validate'
+import { Form } from 'vee-validate'
+import { FormModel } from '~~/types'
 
-const isLoading = ref(false)
-const form = reactive({
-  hadLearn: false,
-  selfIntro: '',
-  studentId: '',
-  studentName: '',
-  whyJoin: '',
-  qq: '',
-  email: '',
+const form = reactive<FormModel>({
+  // studentId: '',
+  // name: '',
+  // qq: '',
+  // email: '',
+  // hadExperience: false,
+  // applyReason: '',
+  // grade: 1,
+  // experience: '',
+  studentId: '220000',
+  name: '测试',
+  qq: '123412',
+  email: 'z233@msn.com',
+  hadExperience: false,
+  applyReason: '2444',
+  grade: 1,
+  experience: '',
 })
 
-function handleSubmit(value) {
-  console.log('fronz ~ handleSubmit ~ value', value)
-}
+const { handleSubmit, isLoading } = useSubmitForm()
 </script>
 
 <template>
@@ -29,16 +36,16 @@ function handleSubmit(value) {
         <div class="input-row">
           <BaseInput
             v-model="form.studentId"
-            :name="'stdId'"
+            :name="'studentId'"
             :rules="'required|gradeOne'"
             class="col-span-1"
             :label="'学号'"
             :type="'number'"
           />
           <BaseInput
-            v-model="form.studentName"
+            v-model="form.name"
             :rules="'required|name'"
-            :name="'stdName'"
+            :name="'name'"
             :label="'姓名'"
             :type="'text'"
           />
@@ -61,18 +68,18 @@ function handleSubmit(value) {
           />
         </div>
         <BaseCheckbox
-          v-model="form.hadLearn"
-          :name="'hadLearn'"
+          v-model="form.hadExperience"
+          :name="'hadExperience'"
           :label="'我有编程基础'"
         />
         <BaseTextarea
-          v-model="form.selfIntro"
-          v-show="form.hadLearn"
-          :name="'prgExp'"
+          v-model="form.experience"
+          v-if="form.hadExperience"
+          :name="'experience'"
           :label="'聊聊你学过的东西，以及用来做过哪些有趣的事'"
         />
         <BaseTextarea
-          v-model="form.whyJoin"
+          v-model="form.applyReason"
           :rules="'required'"
           :name="'applyReason'"
           :label="'说说你为什么想加入软件部'"
