@@ -70,27 +70,25 @@ function handleChangeTheme(themeValue: string) {
     }"
   >
     <div
-      class="w-6 cursor-pointer sm:hidden relative z-[200]"
+      class="cursor-pointer sm:hidden relative z-[200]"
       @click="open = !open"
     >
       <!-- Menu Button Start -->
-      <div
-        class="bg-navigation text-navigation h-1 py-2 box-content bg-clip-content w-full relative opacity-100 before:block before:h-1 before:w-full before:absolute before:top-0 before:bg-current after:block after:h-1 after:w-full after:absolute after:bottom-0 after:bg-current transition"
+      <NavigationButton
+        :active="open"
+        class="text-navigation"
         :class="{
-          ['before:translate-y-[8.5px] before:translate-x-0 before:rotate-45  ' +
-          'after:translate-y-[-8.5px] after:translate-x-0 after:-rotate-45  ' +
-          'bg-transparent !text-white z-10 opacity-100']: open,
-          ['!bg-transparent']: open,
+          'text-negative': open,
         }"
       />
-
       <!-- Menu Button End -->
     </div>
     <!-- Mobile Navigation Background Start -->
     <div
+      @scroll.prevent=""
       class="inset-0 bg-primary h-0 transition-[height,opacity] opacity-0 sm:opacity-100 sm:h-auto sm:inset-auto sm:bg-transparent text-negative sm:text-navigation font-bold"
       :class="{
-        '!h-full !opacity-100': open,
+        '!h-full !opacity-100 overflow-hidden': open,
         'fixed sm:left-0': fixed,
         'fixed sm:static z-[100]': !fixed,
         [bgColor ? bgColor : '']: true,
@@ -98,7 +96,7 @@ function handleChangeTheme(themeValue: string) {
     >
       <!-- Mobile Navigation Background End -->
       <div
-        class="absolute top-1/2 transform -translate-y-1/2 w-screen text-shadow-md flex-col items-center space-y-4 hidden sm:flex sm:flex-row sm:space-y-0 sm:static sm:translate-y-0 sm:px-5"
+        class="absolute top-1/2 transform -translate-y-1/2 w-screen text-shadow-md flex-col items-center space-y-12 hidden sm:flex sm:flex-row sm:space-y-0 sm:static sm:translate-y-0 sm:px-5"
         :class="{ '!flex': open }"
       >
         <div class="sm:flex-1 sm:h-8 flex items-center flex-col sm:flex-row">
@@ -109,7 +107,7 @@ function handleChangeTheme(themeValue: string) {
         </div>
         <!-- Navigation Items Start -->
         <ul
-          class="flex flex-col sm:flex-1 sm:flex-row sm:space-x-8 sm:justify-center"
+          class="flex flex-col sm:flex-1 sm:flex-row sm:space-x-8 sm:justify-center space-y-4 sm:space-y-0"
         >
           <li v-for="item in items">
             <nuxt-link
