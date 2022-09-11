@@ -54,11 +54,11 @@ watch(isActive, (isActiveValue) => {
         软件部致力于探索软件开发前沿，营造一个优秀的学习环境，助力个人技术能力的提升。
       </p>
       <div class="space-x-4">
-        <BaseButton class="bg-primary hover:bg-primary-lighter text-white"
+        <BaseButton class="bg-primary hover:bg-primary-lighter text-white border-2 border-transparent"
           ><nuxt-link to="/apply">立即报名</nuxt-link></BaseButton
         >
         <BaseButton
-          class="bg-transparent hover:bg-[rgba(0,0,0,0.025)] ring-2 ring-white text-white"
+          class="bg-transparent hover:bg-[rgba(0,0,0,0.025)] border-2 border-white text-white"
           ><a
             :href="QQ_GROUP_LINK"
             target="_blank"
