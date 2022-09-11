@@ -10,5 +10,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     apiBase: '',
     apiToken: '',
-  }
+  },
+  build: {
+    transpile: ['vue-toastification'],
+  },
 })
