@@ -41,7 +41,7 @@ const directions = [
     icon: 'ai',
     iconColor: 'bg-red-600',
     name: '人工智能',
-    desc: '对自然语言处理（语音助手）、计算机视觉（自动驾驶）、数据挖掘（推荐算法）等方向进行学习。在这里你可以汲取学长的学习经验，接触到不同学院的老师、同学。',
+    desc: '自然语言处理(语音助手)、计算机视觉(Target detection，Image segmentation，matting)等方向进行学习。在这里有学长们引导你入门人工智能技术，动手实践有趣的人工智能小项目。',
   },
 ]
 </script>
