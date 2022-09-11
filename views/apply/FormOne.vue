@@ -29,7 +29,7 @@ const { handleSubmit, isLoading } = useSubmitForm(form)
           <BaseInput
             v-model="form.studentId"
             :name="'studentId'"
-            :rules="'required|gradeOne'"
+            :rules="'required'"
             class="col-span-1"
             :label="'学号'"
             :type="'number'"

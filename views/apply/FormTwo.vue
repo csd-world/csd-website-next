@@ -48,7 +48,7 @@ const directionOptions = [
         <BaseInput
           v-model="form.studentId"
           :name="'studentId'"
-          :rules="'required|gradeTwo'"
+          :rules="'required'"
           class="col-span-1"
           :label="'学号'"
           :type="'number'"
