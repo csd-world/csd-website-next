@@ -20,10 +20,12 @@ const tabs = {
   'grade-one': {
     label: '大一',
     component: FormOne,
+    introduction: `加入软件部的一般流程是：填写报名表 → 参加机试 → 参加面试 → 获得入部资格。在一切都没到来之前，先填个表吧！让我们认识一下你`,
   },
   'grade-two': {
     label: '大二',
     component: FormTwo,
+    introduction: `经这条途径加入软件部的流程是：填写表格 → 得到面试通知→ 参加面试 → 得到面试结果 → 获得入部资格。那么下面请坐和放宽，认真填写下面这份表格吧`,
   },
 }
 
@@ -37,7 +39,9 @@ function handleTabClick(key: TabKey) {
 </script>
 
 <template>
-  <div class="relative bg-gray-200 flex flex-col items-center text-white pb-8 min-h-screen">
+  <div
+    class="relative bg-gray-200 flex flex-col items-center text-white pb-8 min-h-screen"
+  >
     <div class="flex flex-col items-center bg-section-primary w-full">
       <Navigation />
       <div class="container">
@@ -61,7 +65,10 @@ function handleTabClick(key: TabKey) {
         >
           <div class="col-span-3 sm:col-span-2">
             <h3>加入软件部</h3>
-            <p>test<span class="whitespace-nowrap">( •̀ ω •́ )✧</span></p>
+            <p>
+              {{ tabs[activeTabKey].introduction
+              }}&nbsp;<span class="whitespace-nowrap">( •̀ ω •́ )✧</span>
+            </p>
           </div>
           <div class="sm:col-span-1 relative hidden sm:block">
             <img

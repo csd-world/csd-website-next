@@ -4,6 +4,10 @@ export default {
 }
 </script>
 
+<script setup>
+import { QQ_GROUP_LINK } from '~~/common'
+</script>
+
 <template>
   <SectionContainer class="bg-section-background">
     <div class="relative max-w-xl lg:max-w-2xl mx-auto">
@@ -36,9 +40,16 @@ export default {
             content="无论你是初入大学校门，还是已经习惯了大学生活，都有机会在软件部获得一席之地。期待能与你一起学习，共同进步！"
           />
         </div>
-        <div>
-          <BaseButton class="bg-section-primary">
-            <span class="iconfont icon-QQ mr-1" /><span>加入群聊</span>
+        <div class="space-x-2">
+          <BaseButton class="bg-section-primary text-white"
+            ><nuxt-link to="/apply">立即报名</nuxt-link></BaseButton
+          >
+          <BaseButton class="bg-section-primary text-white">
+            <a
+              :href="QQ_GROUP_LINK"
+              target="_blank"
+              ><span class="iconfont icon-QQ mr-1" /><span>加入群聊</span></a
+            >
           </BaseButton>
         </div>
       </div>

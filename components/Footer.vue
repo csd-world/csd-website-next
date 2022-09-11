@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { QQ_GROUP_LINK, csdWebsites, friendLinks } from '~~/common'
+
 const props = defineProps<{
   textStyle?: `text-${string}`
   bgStyle?: `bg-${string}`
@@ -18,32 +20,47 @@ const { textStyle, bgStyle } = props
         <span class="ml-4 font-bold tracking-[0.25em]">软件部</span>
       </div>
       <p class="mt-2">
-        滚滚长江东逝水，浪花淘尽英雄。是非成败转头空，青山依旧在，几度夕阳红。
+        软件部致力于探索软件开发前沿，营造一个优秀的学习环境，助力个人技术能力的提升。
       </p>
     </div>
     <div class="col-span-2 sm:col-auto">
       <h3 class="section-title">联系我们</h3>
       <ul class="space-y-1.5">
-        <li>招新 QQ 群：123456789</li>
+        <li>
+          招新 QQ 群：<a
+            class="underline"
+            :href="QQ_GROUP_LINK"
+            target="_blank"
+            >1132331891</a
+          >
+        </li>
         <li>线下地址：大学生活动中心三楼 302 软件部</li>
       </ul>
     </div>
     <div>
       <h3 class="section-title">我们的站点</h3>
       <ul class="space-y-1.5">
-        <li>软件部 OJ</li>
-        <li>软件部 WiKi</li>
-        <li>软件部 Git</li>
-        <li>软件部网盘</li>
+        <li v-for="(link, title) in csdWebsites">
+          <a
+            class="underline"
+            :href="link"
+            target="_blank"
+            >{{ title }}</a
+          >
+        </li>
       </ul>
     </div>
     <div>
       <h3 class="section-title">友情链接</h3>
       <ul class="space-y-1.5">
-        <li>软件部 OJ</li>
-        <li>软件部 WiKi</li>
-        <li>软件部 Git</li>
-        <li>软件部网盘</li>
+        <li v-for="(link, title) in friendLinks">
+          <a
+            class="underline"
+            :href="link"
+            target="_blank"
+            >{{ title }}</a
+          >
+        </li>
       </ul>
     </div>
   </div>

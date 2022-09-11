@@ -1,12 +1,10 @@
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 import 'atropos/css'
 import Atropos from 'atropos/vue'
 
 import { toRefs } from 'vue'
-import { emitter, navigationEvent } from '~~/utils/emitter';
+import { emitter, navigationEvent } from '~~/utils/emitter'
+import { QQ_GROUP_LINK } from '~~/common'
 
 const props = defineProps<{
   isActive: boolean
@@ -18,11 +16,9 @@ watch(isActive, (isActiveValue) => {
   if (isActiveValue) {
     emitter.emit(navigationEvent.changeTheme, 'primary')
   } else {
-
     emitter.emit(navigationEvent.changeTheme, 'negative')
   }
 })
-
 </script>
 
 <template>
@@ -32,7 +28,7 @@ watch(isActive, (isActiveValue) => {
     :shadow-scale="1.15"
     :rotate-x-max="0.5"
     :rotate-y-max="0.5"
-    class="h-full  text-center relative overflow-hidden"
+    class="h-full text-center relative overflow-hidden"
   >
     <div
       data-atropos-offset="-2"
@@ -55,11 +51,20 @@ watch(isActive, (isActiveValue) => {
     >
       <h1 class="text-2xl md:text-3xl font-bold">和我们一起，探索这个世界</h1>
       <p class="md:text-lg">
-        滚滚长江东逝水，浪花淘尽英雄。是非成败转头空，青山依旧在，几度夕阳红。
+        软件部致力于探索软件开发前沿，营造一个优秀的学习环境，助力个人技术能力的提升。
       </p>
-      <div>
+      <div class="space-x-4">
         <BaseButton class="bg-primary hover:bg-primary-lighter text-white"
-          >马上加入</BaseButton
+          ><nuxt-link to="/apply">立即报名</nuxt-link></BaseButton
+        >
+        <BaseButton
+          class="bg-transparent hover:bg-[rgba(0,0,0,0.025)] ring-2 ring-white text-white"
+          ><a
+            :href="QQ_GROUP_LINK"
+            target="_blank"
+          >
+            <span class="iconfont icon-QQ mr-1"></span>加入群聊
+          </a></BaseButton
         >
       </div>
       <div
