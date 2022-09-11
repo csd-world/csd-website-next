@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CustomPageMeta } from '~~/types'
+import { CustomPageMeta, Maybe } from '~~/types'
 import { emitter, navigationEvent } from '~~/utils/emitter'
 import FormOne from '~~/views/apply/FormOne.vue'
 import FormTwo from '~~/views/apply/FormTwo.vue'
@@ -33,8 +33,9 @@ const tabs = {
 
 const headerRef = ref<HTMLElement>(null)
 
+let observer: Maybe<IntersectionObserver> = null
 onMounted(() => {
-  const observer = new IntersectionObserver(
+  observer = new IntersectionObserver(
     ([entry]) => {
       const { isIntersecting } = entry
       emitter.emit(
@@ -45,6 +46,10 @@ onMounted(() => {
     { threshold: 0.1 }
   )
   observer.observe(headerRef.value)
+})
+
+onUnmounted(() => {
+  observer.disconnect()
 })
 
 type TabKey = keyof typeof tabs
