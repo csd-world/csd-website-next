@@ -22,10 +22,12 @@ const items = shallowRef([
 ])
 
 const navigation = ref<Maybe<HTMLElement>>(null)
+defineExpose({ elRef: navigation })
+
 const open = ref(false)
-const sticking = ref(false)
 
 const fixed = ref(true)
+const sticky = ref(false)
 const theme = ref('primary')
 const bgColor = ref('')
 
@@ -36,6 +38,7 @@ watch(
     const pageMeta: CustomPageMeta = route.meta
     const navigationOptions = pageMeta.navigationOptions
     fixed.value = Boolean(navigationOptions?.fixed)
+    sticky.value = Boolean(navigationOptions?.sticky)
     theme.value = navigationOptions?.theme ? navigationOptions.theme : 'primary'
     bgColor.value = navigationOptions?.bgColor ? navigationOptions.bgColor : ''
   },
@@ -61,8 +64,9 @@ function handleChangeTheme(themeValue: string) {
     :class="{
       'fixed z-[200] sm:left-0': fixed,
       ' sm:self-stretch': !fixed,
-      ' sticky top-0 sm:static sm:top-auto': sticking && !fixed,
-      [bgColor ? bgColor : '']: true,
+      ' fixed top-0 sm:static sm:top-auto': sticky && !fixed,
+      [bgColor ? `sm:${bgColor}` : '']: true,
+      // sm:bg-section-primary
     }"
   >
     <div
@@ -71,7 +75,7 @@ function handleChangeTheme(themeValue: string) {
     >
       <!-- Menu Button Start -->
       <div
-        class="bg-navigation text-navigation h-1 py-2 box-content bg-clip-content w-full relative opacity-100 before:block before:h-1 before:w-full before:absolute before:top-0 before:bg-current after:block after:h-1 after:w-full after:absolute after:bottom-0 after:bg-current before:transition-transform after:transition-transform transition-transform"
+        class="bg-navigation text-navigation h-1 py-2 box-content bg-clip-content w-full relative opacity-100 before:block before:h-1 before:w-full before:absolute before:top-0 before:bg-current after:block after:h-1 after:w-full after:absolute after:bottom-0 after:bg-current transition"
         :class="{
           ['before:translate-y-[8.5px] before:translate-x-0 before:rotate-45  ' +
           'after:translate-y-[-8.5px] after:translate-x-0 after:-rotate-45  ' +

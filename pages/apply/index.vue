@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { CustomPageMeta } from '~~/types'
+import { emitter, navigationEvent } from '~~/utils/emitter'
 import FormOne from '~~/views/apply/FormOne.vue'
 import FormTwo from '~~/views/apply/FormTwo.vue'
 
@@ -8,6 +9,7 @@ definePageMeta({
   layout: 'blank',
   navigationOptions: {
     fixed: false,
+    sticky: true,
     theme: 'negative',
     bgColor: 'bg-section-primary',
   },
@@ -29,6 +31,22 @@ const tabs = {
   },
 }
 
+const headerRef = ref<HTMLElement>(null)
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      const { isIntersecting } = entry
+      emitter.emit(
+        navigationEvent.changeTheme,
+        isIntersecting ? 'negative' : 'section-primary'
+      )
+    },
+    { threshold: 0.1 }
+  )
+  observer.observe(headerRef.value)
+})
+
 type TabKey = keyof typeof tabs
 
 const activeTabKey = ref<TabKey>('grade-one')
@@ -42,8 +60,11 @@ function handleTabClick(key: TabKey) {
   <div
     class="relative bg-gray-200 flex flex-col items-center text-white pb-8 min-h-screen"
   >
-    <div class="flex flex-col items-center bg-section-primary w-full">
-      <Navigation />
+    <Navigation />
+    <div
+      ref="headerRef"
+      class="flex flex-col items-center bg-section-primary w-full pt-14 sm:pt-0"
+    >
       <div class="container">
         <div class="w-full px-8 sm:px-0">
           <div class="flex">
@@ -66,8 +87,10 @@ function handleTabClick(key: TabKey) {
           <div class="col-span-3 sm:col-span-2">
             <h3>加入软件部</h3>
             <p>
-              {{ tabs[activeTabKey].introduction
-              }}&nbsp;<span class="whitespace-nowrap">( •̀ ω •́ )✧</span>
+              {{ tabs[activeTabKey].introduction }}&nbsp;<span
+                class="whitespace-nowrap"
+                >( •̀ ω •́ )✧</span
+              >
             </p>
           </div>
           <div class="sm:col-span-1 relative hidden sm:block">
@@ -85,12 +108,6 @@ function handleTabClick(key: TabKey) {
     </div>
   </div>
 </template>
-
-<style lang="postcss">
-:global(body) {
-  @apply !bg-gray-200;
-}
-</style>
 
 <style lang="postcss" scoped>
 .tab {

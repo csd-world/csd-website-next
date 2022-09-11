@@ -41,6 +41,7 @@ const importFn = () => import('~/assets/json/creative.json')
       </div>
     </div>
     <HeroText
+      class="mt-6 sm:mt-0"
       title="一群充满创造力的人"
       content="软件部汇聚了一群精通技术又充满创造力的人，他们在自己专注的方向上大放异彩。"
     />

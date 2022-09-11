@@ -6,8 +6,9 @@ export type PageType = 'navigation'
 
 export interface NavigationOptions {
   fixed?: boolean
+  sticky?: boolean
   theme?: 'primary' | 'negative'
-  bgColor?: `bg-${string}`
+  bgColor?: `${string}bg-${string}`
 }
 
 export interface LayoutOptions {
