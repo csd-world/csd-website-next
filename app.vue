@@ -1,7 +1,12 @@
 <script setup lang="ts">
-import { DEFAULT_THEME } from './themes'
-import { getThemeCSS } from './themes/utils'
+import { getRandomTheme, getThemeCSS } from './themes/utils'
 import './style/index.css'
+import { ThemeKey } from '~/types/symbol'
+
+const currentTheme = ref(getRandomTheme())
+const themeStyleChildren = computed(() => `:root ${getThemeCSS(currentTheme.value)}`)
+
+provide(ThemeKey, currentTheme)
 
 const route = useRoute()
 const title = computed(() => route.meta.title)
@@ -38,7 +43,7 @@ useHead({
     <Title>{{ title }}</Title>
     <Style
       type="text/css"
-      :children="`:root ${getThemeCSS(DEFAULT_THEME)}`"
+      :children="themeStyleChildren"
     />
     <Link rel="icon" />
   </Head>

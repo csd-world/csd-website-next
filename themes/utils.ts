@@ -1,23 +1,12 @@
-import { themes } from '.'
+import { availableThemes, themes } from '.'
 import Color from 'color'
+import { Theme, MappedTheme } from './types'
+import { Maybe } from '~~/types'
 
 const lighten = (color: string, val: number) => Color(color).lighten(val).hex()
 
-export interface Theme {
-  [key: string]: string
-}
-
-export interface Themes {
-  [key: string]: Theme
-}
-
-export interface MappedTheme {
-  [key: string]: string | null
-}
-
-export const mapTheme: (variables: Theme) => MappedTheme = (
-  variables: Theme
-) => {
+export const mapTheme: (theme: Theme) => MappedTheme = (theme: Theme) => {
+  const variables = theme.colors
   return {
     '--color-primary': variables.primary || '',
     '--color-primary-lighter': variables.primaryLighter
@@ -65,4 +54,24 @@ export function getThemeCSS(theme: string): string {
   }
   css += '}'
   return css
+}
+
+function getTimeRange(hour: number): 'day' | 'sunset' | 'night' {
+  if (hour >= 7 && hour < 15) return 'day'
+  else if (hour >= 15 && hour < 19) return 'sunset'
+  else return 'night'
+}
+
+export function getBackgroundAssets(
+  theme: string
+): Maybe<Theme['backgroundAssets'][keyof Theme['backgroundAssets']]> {
+  const themeObject = themes[theme]
+  if (!themeObject) return
+  return themeObject.backgroundAssets['day']
+}
+
+export function getRandomTheme() {
+  const seed = Math.random()
+  const index = Math.round(seed * (availableThemes.length - 1))
+  return availableThemes[index]
 }

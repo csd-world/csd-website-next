@@ -5,12 +5,16 @@ import Atropos from 'atropos/vue'
 import { toRefs } from 'vue'
 import { emitter, navigationEvent } from '~~/utils/emitter'
 import { QQ_GROUP_LINK } from '~~/common'
+import { ThemeKey } from '~~/types/symbol'
+import { getBackgroundAssets } from '~~/themes/utils'
 
 const props = defineProps<{
   isActive: boolean
 }>()
 
 const { isActive } = toRefs(props)
+const currentTheme = inject(ThemeKey)
+const backgroundAssets = computed(() => getBackgroundAssets(currentTheme.value))
 
 watch(isActive, (isActiveValue) => {
   if (isActiveValue) {
@@ -31,20 +35,10 @@ watch(isActive, (isActiveValue) => {
     class="h-full text-center relative overflow-hidden"
   >
     <div
-      data-atropos-offset="-2"
-      class="bg bg-[url('assets/bg/mountain/sky.svg')]"
-    />
-    <div
-      data-atropos-offset="-1"
-      class="bg bg-[url('assets/bg/mountain/mountain.svg')]"
-    />
-    <div
-      data-atropos-offset="0"
-      class="bg bg-[url('assets/bg/mountain/hill.svg')]"
-    />
-    <div
-      data-atropos-offset="2"
-      class="bg bg-[url('assets/bg/mountain/foreground.svg')]"
+      v-for="asset in backgroundAssets"
+      :data-atropos-offset="asset.offset"
+      class="bg"
+      :class="asset.bgClass"
     />
     <div
       class="absolute text-primary inset-0 grid place-content-center space-y-6 px-6"
@@ -54,7 +48,8 @@ watch(isActive, (isActiveValue) => {
         软件部致力于探索软件开发前沿，营造一个优秀的学习环境，助力个人技术能力的提升。
       </p>
       <div class="space-x-4">
-        <BaseButton class="bg-primary hover:bg-primary-lighter text-white border-2 border-transparent"
+        <BaseButton
+          class="bg-primary hover:bg-primary-lighter text-white border-2 border-transparent"
           ><nuxt-link to="/apply">立即报名</nuxt-link></BaseButton
         >
         <BaseButton
