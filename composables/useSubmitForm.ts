@@ -7,6 +7,7 @@ export default function useSubmitForm(form: FormModel) {
   const router = useRouter()
 
   async function handleSubmit() {
+    if (isLoading.value) return
     isLoading.value = true
     const response = await $fetch('/api/form', {
       method: 'POST',

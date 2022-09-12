@@ -7,7 +7,7 @@ const form = reactive<FormModel>({
   name: '',
   qq: '',
   email: '',
-  hadExperience: false,
+  hadExperience: true,
   applyReason: '',
   grade: 2,
   experience: '',
