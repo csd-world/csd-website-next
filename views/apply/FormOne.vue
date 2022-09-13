@@ -53,7 +53,7 @@ const { handleSubmit, isLoading } = useSubmitForm(form)
           />
           <BaseInput
             v-model="form.email"
-            :rules="'email'"
+            :rules="'required|email'"
             :name="'email'"
             :label="'邮箱'"
             :type="'text'"
