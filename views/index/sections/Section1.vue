@@ -53,7 +53,7 @@ watch(isActive, (isActiveValue) => {
           ><nuxt-link to="/apply">立即报名</nuxt-link></BaseButton
         >
         <BaseButton
-          class="bg-transparent hover:bg-[rgba(0,0,0,0.025)] border-2 border-white text-white"
+          class="bg-transparent hover:bg-[rgba(0,0,0,0.025)] border-2 border-white text-white drop-shadow"
           ><a
             :href="QQ_GROUP_LINK"
             target="_blank"

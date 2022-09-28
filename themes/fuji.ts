@@ -1,12 +1,9 @@
 import { Theme } from './types'
+import base from './base'
 
 const fuji: Theme = {
   colors: {
-    primary: '#253d4b',
-    backgroundPrimary: '#2F4753',
-    negative: 'white',
-    sectionBackground: '#2F4753',
-    sectionPrimary: '#4e2bcc',
+    ...base.colors,
   },
   backgroundAssets: {
     day: {
