@@ -43,11 +43,6 @@ const importFn = () => import('~/assets/json/growth.json')
             class="absolute h-[140%] w-[140%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center"
             :ref="bindRef"
           >
-            <img
-            loading="lazy"
-              src="/assets/webp/growth.webp"
-              alt="Growth"
-            />
           </div>
         </SectionAnimation>
       </div>

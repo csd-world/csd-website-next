@@ -36,14 +36,10 @@ const importFn = () => import('~/assets/json/blogging.json')
         :is-active="isActive"
       >
         <div
-          class="transform scale-125"
+          class="transform scale-125 relative"
           :ref="bindRef"
         >
-          <img
-            loading="lazy"
-            src="/assets/webp/blogging.webp"
-            alt="Blogging"
-          />
+          <div class="pb-[56.3%]" />
         </div>
       </SectionAnimation>
     </div>
