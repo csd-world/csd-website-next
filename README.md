@@ -1,6 +1,6 @@
-# Nuxt 3 Minimal Starter
+# csd-website-next
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+rewrite from https://github.com/Z233/csd-website
 
 ## Setup
 
