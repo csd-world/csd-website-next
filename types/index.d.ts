@@ -32,3 +32,11 @@ export interface FormModel {
   experience?: string
   direction?: 'web' | 'game' | 'ai' | 'mobile' | ''
 }
+
+export interface Attributes {
+  title: string
+  content: string
+  createdAt: string
+  updatedAt: string
+  publishedAt: string
+}

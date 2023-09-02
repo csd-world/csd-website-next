@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { CustomPageMeta } from '~~/types'
+import { directionMapper } from '~~/utils/mapper/mapper'
 
 definePageMeta({
   title: '方向',
@@ -9,6 +10,23 @@ definePageMeta({
     theme: 'negative',
   },
 } as CustomPageMeta)
+
+const { detailAtb, handleFetchDetail } = useDirectionDetail()
+
+const isOpen = ref(false)
+const iconColor = ref('bg-yellow-600')
+
+const handleClick = async (directionIcon: string) => {
+  await handleFetchDetail(directionMapper[directionIcon])
+  isOpen.value = true
+  iconColor.value = directions.find(
+    (item) => item.icon === directionIcon
+  ).iconColor
+}
+
+const handleClose = () => {
+  isOpen.value = false
+}
 
 const directions = [
   {
@@ -48,6 +66,13 @@ const directions = [
 
 <template>
   <div>
+    <DirectionModal
+      v-if="isOpen"
+      @close="handleClose"
+      :title="detailAtb.title"
+      :content="detailAtb.content"
+      :icon-color="iconColor"
+    />
     <div class="flex mb-4 text-white">
       <div class="flex flex-col justify-center space-y-4">
         <h1 class="font-semibold text-shadow-md text-2xl">方向介绍</h1>
@@ -75,12 +100,17 @@ const directions = [
           <span
             class="text-white iconfont p-2 rounded-full mr-2 font-normal"
             :class="['icon-' + dir.icon, `bg-${dir.color}-600`]"
-          /><span class="font-semibold">{{ dir.name }}</span>
+          />
+          <span class="font-semibold">{{ dir.name }}</span>
         </h3>
         <p class="text-gray-600">{{ dir.desc }}</p>
-        <!-- <button 
-            :class="[`bg-${dir.color}-600`, `hover:bg-${dir.color}-700`]"
-            class=" px-3 py-2 rounded-lg">了解更多</button> -->
+        <button
+          :class="[`bg-${dir.color}-600`, `hover:bg-${dir.color}-700`]"
+          class="px-3 py-2 rounded-lg text-white"
+          @click="handleClick(dir.icon)"
+        >
+          了解更多
+        </button>
       </div>
     </div>
   </div>

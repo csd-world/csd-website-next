@@ -9,7 +9,7 @@ export default function useSubmitForm(form: FormModel) {
   async function handleSubmit() {
     if (isLoading.value) return
     isLoading.value = true
-    const response = await $fetch('/api/form', {
+    await $fetch('/api/enrolls', {
       method: 'POST',
       body: {
         data: form,

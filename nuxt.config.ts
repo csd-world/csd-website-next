@@ -4,12 +4,12 @@ import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
   css: ['~/style/index.css', '~/assets/icon/iconfont.css'],
-  autoImports: {
+  imports: {
     dirs: ['views/**'],
   },
+
   runtimeConfig: {
-    apiBase: '',
-    apiToken: '',
+    apiBase: 'http://101.35.238.12:1337',
   },
   build: {
     transpile: ['vue-toastification'],
