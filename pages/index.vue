@@ -3,9 +3,8 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import '~/style/swiper.css'
 import { Pagination, Mousewheel } from 'swiper'
-import { CustomPageMeta, Maybe, NavigationTheme } from '~~/types'
+import { CustomPageMeta, NavigationTheme } from '~~/types'
 import * as Sections from '~~/views/index/sections'
-import { useNavigationStore } from '~~/stores/navigation'
 
 const sections = Object.values(Sections)
 
@@ -14,7 +13,7 @@ definePageMeta({
   type: 'navigation',
   navigationOptions: {
     fixed: true,
-    theme: NavigationTheme.NEGATIVE
+    theme: NavigationTheme.PRIMARY
   },
 } as CustomPageMeta)
 

@@ -7,7 +7,7 @@ definePageMeta({
   navigationOptions: {
     fixed: false,
     theme: NavigationTheme.NEGATIVE,
-    bgColor: 'bg-transparent'
+    bgColor: 'bg-primary'
   },
 } as CustomPageMeta)
 
