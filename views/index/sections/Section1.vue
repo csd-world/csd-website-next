@@ -3,10 +3,11 @@ import 'atropos/css'
 import Atropos from 'atropos/vue'
 
 import { toRefs } from 'vue'
-import { emitter, navigationEvent } from '~~/utils/emitter'
 import { QQ_GROUP_LINK } from '~~/common'
 import { ThemeKey } from '~~/types/symbol'
 import { getBackgroundAssets } from '~~/themes/utils'
+import { useNavigationStore } from '~~/stores/navigation'
+import { NavigationTheme } from '~~/types'
 
 const props = defineProps<{
   isActive: boolean
@@ -16,11 +17,21 @@ const { isActive } = toRefs(props)
 const currentTheme = inject(ThemeKey)
 const backgroundAssets = computed(() => getBackgroundAssets(currentTheme.value))
 
+const { $patch } = useNavigationStore()
+
 watch(isActive, (isActiveValue) => {
   if (isActiveValue) {
-    emitter.emit(navigationEvent.changeTheme, 'primary')
+    $patch({
+      options: {
+        theme: NavigationTheme.PRIMARY
+      }
+    })
   } else {
-    emitter.emit(navigationEvent.changeTheme, 'negative')
+    $patch({
+      options: {
+        theme: NavigationTheme.NEGATIVE
+      }
+    })
   }
 })
 </script>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { CustomPageMeta, Maybe } from '~~/types'
-import { emitter, navigationEvent } from '~~/utils/emitter'
+import { useNavigationStore } from '~~/stores/navigation';
+import { CustomPageMeta, Maybe, NavigationTheme } from '~~/types'
 import FormOne from '~~/views/apply/FormOne.vue'
 import FormTwo from '~~/views/apply/FormTwo.vue'
 
@@ -31,25 +31,29 @@ const tabs = {
   },
 }
 
-const headerRef = ref<HTMLElement>(null)
+const { $patch } = useNavigationStore()
+const headerRef = ref<Maybe<HTMLElement>>(null)
 
 let observer: Maybe<IntersectionObserver> = null
 onMounted(() => {
   observer = new IntersectionObserver(
     ([entry]) => {
       const { isIntersecting } = entry
-      emitter.emit(
-        navigationEvent.changeTheme,
-        isIntersecting ? 'negative' : 'section-primary'
-      )
+      $patch({
+        options: {
+          theme: isIntersecting ? NavigationTheme.NEGATIVE : NavigationTheme.SECTION_PRIMARY
+        }
+      })
     },
     { threshold: 0.1 }
   )
-  observer.observe(headerRef.value)
+  if (headerRef.value) {
+    observer.observe(headerRef.value)
+  }
 })
 
 onUnmounted(() => {
-  observer.disconnect()
+  if (observer) observer.disconnect()
 })
 
 type TabKey = keyof typeof tabs

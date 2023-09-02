@@ -6,7 +6,8 @@ export type PageType = 'navigation'
 
 export enum NavigationTheme {
   PRIMARY = 'primary',
-  NEGATIVE = 'negative'
+  NEGATIVE = 'negative',
+  SECTION_PRIMARY = 'section-primary'
 }
 
 export interface NavigationOptions {
