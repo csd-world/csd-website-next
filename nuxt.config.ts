@@ -9,7 +9,8 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    apiBase: 'http://101.35.238.12:1337',
+    apiBase: '',
+    apiToken: '',
   },
   build: {
     transpile: ['vue-toastification'],
