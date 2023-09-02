@@ -1,24 +1,9 @@
 <script setup lang="ts">
-import { CustomPageMeta } from '~~/types'
+import { useLayoutStore } from '~~/stores/layout';
 
-const bgColor = ref('')
-const withFooter = ref(true)
+  const { options } = useLayoutStore() 
+  const { bgColor } = toRefs(options)
 
-const route = useRoute()
-watch(
-  route,
-  () => {
-    const pageMeta: CustomPageMeta = route.meta
-    const layoutOptions = pageMeta.layoutOptions
-    bgColor.value = layoutOptions?.bgColor ? layoutOptions.bgColor : ''
-    withFooter.value = layoutOptions?.withFooter
-      ? layoutOptions.withFooter
-      : true
-  },
-  {
-    immediate: true,
-  }
-)
 </script>
 
 <template>

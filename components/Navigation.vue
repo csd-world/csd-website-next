@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
-import { CustomPageMeta, Maybe } from '~~/types'
-import { emitter, navigationEvent } from '~~/utils/emitter'
+import { ref } from 'vue'
+import { Maybe } from '~~/types'
+import { useNavigationStore } from '~~/stores/navigation'
 
 const items = shallowRef([
   {
@@ -26,32 +26,9 @@ defineExpose({ elRef: navigation })
 
 const open = ref(false)
 
-const fixed = ref(true)
-const sticky = ref(false)
-const theme = ref('primary')
-const bgColor = ref('')
+const { options } = useNavigationStore()
+const { fixed, sticky, theme, bgColor } = toRefs(options)
 
-const route = useRoute()
-watch(
-  route,
-  () => {
-    const pageMeta: CustomPageMeta = route.meta
-    const navigationOptions = pageMeta.navigationOptions
-    fixed.value = Boolean(navigationOptions?.fixed)
-    sticky.value = Boolean(navigationOptions?.sticky)
-    theme.value = navigationOptions?.theme ? navigationOptions.theme : 'primary'
-    bgColor.value = navigationOptions?.bgColor ? navigationOptions.bgColor : ''
-  },
-  {
-    immediate: true,
-  }
-)
-
-emitter.on(navigationEvent.changeTheme, handleChangeTheme)
-
-function handleChangeTheme(themeValue: string) {
-  theme.value = themeValue
-}
 </script>
 <template>
   <div
