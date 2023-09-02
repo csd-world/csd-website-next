@@ -31,7 +31,7 @@ const { textStyle, bgStyle } = props
             class="underline"
             :href="QQ_GROUP_LINK"
             target="_blank"
-            >1132331891</a
+            >885846205</a
           >
         </li>
         <li>线下地址：大学生活动中心三楼 302 软件部</li>

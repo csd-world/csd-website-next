@@ -4,7 +4,7 @@ import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
   css: ['~/style/index.css', '~/assets/icon/iconfont.css'],
-  autoImports: {
+  imports: {
     dirs: ['views/**'],
   },
   runtimeConfig: {
