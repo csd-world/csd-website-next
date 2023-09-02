@@ -7,17 +7,19 @@
     "preview": "nuxt preview"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^5.0.4",
-    "nuxt": "^3.0.0-rc.9",
-    "prettier-plugin-tailwindcss": "^0.1.10"
+    "@nuxtjs/tailwindcss": "^6.8.0",
+    "nuxt": "^3.6.5",
+    "prettier-plugin-tailwindcss": "^0.4.1"
   },
   "dependencies": {
+    "@pinia/nuxt": "^0.4.11",
     "@types/color": "^3.0.3",
     "atropos": "^1.0.2",
     "color": "^4.2.3",
     "lottie-web": "^5.9.6",
     "mitt": "^3.0.0",
     "party-js": "^2.2.0",
+    "pinia": "^2.1.6",
     "swiper": "^8.1.4",
     "vee-validate": "^4.6.7",
     "vue-toastification": "^2.0.0-rc.5"

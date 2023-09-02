@@ -4,10 +4,15 @@ export type Maybe<T> = T | null | undefined
 
 export type PageType = 'navigation'
 
+export enum NavigationTheme {
+  PRIMARY = 'primary',
+  NEGATIVE = 'negative'
+}
+
 export interface NavigationOptions {
   fixed?: boolean
   sticky?: boolean
-  theme?: 'primary' | 'negative'
+  theme?: NavigationTheme
   bgColor?: `${string}bg-${string}`
 }
 

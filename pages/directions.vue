@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { CustomPageMeta } from '~~/types'
+import { CustomPageMeta, NavigationTheme } from '~~/types'
 
 definePageMeta({
   title: '方向',
   layout: 'page',
   navigationOptions: {
     fixed: false,
-    theme: 'negative',
+    theme: NavigationTheme.NEGATIVE,
+    bgColor: 'bg-transparent'
   },
 } as CustomPageMeta)
 
@@ -57,7 +58,7 @@ const directions = [
       </div>
       <img
         class="sm:block hidden aspect-[4/3]"
-        src="/assets/svg/discovery.svg"
+        src="~/assets/svg/discovery.svg"
         alt=""
         srcset=""
       />
