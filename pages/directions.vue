@@ -57,7 +57,7 @@ const directions = [
       </div>
       <img
         class="sm:block hidden aspect-[4/3]"
-        src="/assets/svg/discovery.svg"
+        src="~/assets/svg/discovery.svg"
         alt=""
         srcset=""
       />

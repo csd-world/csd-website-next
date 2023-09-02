@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { watch, toRefs } from 'vue'
+import { watch, toRefs, onMounted } from 'vue'
 import lottie, { AnimationItem } from 'lottie-web'
 import { Maybe } from '~~/types'
 
@@ -31,6 +31,7 @@ onMounted(() => {
   lazyAnimation = new AsyncLazy(() =>
     importFn()
       .then((importData) => {
+        if (!containerEl) throw new Error('containerEl is null')
         const data = importData.default
         containerEl.innerHTML = ''
         const animation = lottie.loadAnimation({

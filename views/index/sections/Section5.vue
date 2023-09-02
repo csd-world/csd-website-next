@@ -29,7 +29,7 @@ import { QQ_GROUP_LINK } from '~~/common'
         >
           <img
             loading="lazy"
-            src="/assets/svg/welcome.svg"
+            src="~/assets/svg/welcome.svg"
             class="sm:w-3/5 mx-auto relative"
             alt=""
           />

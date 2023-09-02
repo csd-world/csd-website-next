@@ -1,12 +1,10 @@
-import { defineNuxtConfig } from 'nuxt'
+import { defineNuxtConfig } from 'nuxt/config'
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
   css: ['~/style/index.css', '~/assets/icon/iconfont.css'],
-  autoImports: {
-    dirs: ['views/**'],
-  },
+  components: ['~/views', '~/components'],
   runtimeConfig: {
     apiBase: '',
     apiToken: '',
