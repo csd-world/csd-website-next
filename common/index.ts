@@ -1,4 +1,5 @@
-export const QQ_GROUP_LINK = 'https://jq.qq.com/?_wv=1027&k=8l0TaHCJ'
+export const QQ_GROUP_LINK =
+  'https://qm.qq.com/cgi-bin/qm/qr?k=kREGZtuwgGFfSA1GmOHwynHtd4lIsps3'
 
 export const csdWebsites = {
   '软件部 OJ': 'https://oj.dsstudio.tech/problem',
