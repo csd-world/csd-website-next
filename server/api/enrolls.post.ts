@@ -1,8 +1,8 @@
-export default defineEventHandler(async (event) => {
+const enrollsPost =  defineEventHandler(async (event) => {
   const runtimeConfig = useRuntimeConfig()
   const { apiBase, apiToken } = runtimeConfig
-  const body = await useBody(event)
-  const response = await $fetch(`${apiBase}/api/enrolls`, {
+  const body = await readBody(event)
+  const response = await $fetch<unknown>(`${apiBase}/api/enrolls`, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${apiToken}`,
@@ -11,3 +11,5 @@ export default defineEventHandler(async (event) => {
   })
   return response
 })
+
+export default enrollsPost
