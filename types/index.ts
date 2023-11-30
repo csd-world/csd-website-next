@@ -1,5 +1,13 @@
 import { PageMeta } from 'nuxt/dist/pages/runtime'
 
+export interface ApiResponse<T> {
+  data: T;
+  pending: boolean;
+  error: any;
+  refresh: () => Promise<void>;
+  status: number;
+}
+
 export type Maybe<T> = T | null | undefined
 
 export type PageType = 'navigation'
@@ -35,6 +43,6 @@ export interface FormModel {
   hadExperience: boolean
   applyReason: string
   grade: number
-  experience?: string
-  direction?: 'web' | 'game' | 'ai' | 'mobile' | ''
+  experience: string
+  direction: 'web' | 'game' | 'ai' | 'mobile' | ''
 }
