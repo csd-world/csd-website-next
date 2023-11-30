@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useNavigationStore } from '~~/stores/navigation';
+import { useNavigationStore } from '~~/stores/navigation'
 import { CustomPageMeta, Maybe, NavigationTheme } from '~~/types'
 import FormOne from '~~/views/apply/FormOne.vue'
 import FormTwo from '~~/views/apply/FormTwo.vue'
@@ -41,8 +41,10 @@ onMounted(() => {
       const { isIntersecting } = entry
       $patch({
         options: {
-          theme: isIntersecting ? NavigationTheme.NEGATIVE : NavigationTheme.SECTION_PRIMARY
-        }
+          theme: isIntersecting
+            ? NavigationTheme.NEGATIVE
+            : NavigationTheme.SECTION_PRIMARY,
+        },
       })
     },
     { threshold: 0.1 }
@@ -120,10 +122,10 @@ function handleTabClick(key: TabKey) {
 
 <style lang="postcss" scoped>
 .tab {
-  @apply flex-grow text-center py-2 sm:py-3 bg-black bg-opacity-40 rounded-t-lg text-sm cursor-pointer hover:bg-white hover:text-primary transition;
+  @apply flex-grow text-center py-2 sm:py-3 bg-black bg-opacity-40 rounded-t-lg text-sm cursor-pointer hover:bg-opacity-[0.3]  transition;
 }
 
 .tab.active {
-  @apply bg-black bg-opacity-[0.25] hover:bg-white;
+  @apply bg-black bg-opacity-[0.25];
 }
 </style>
