@@ -14,6 +14,10 @@ export default defineNuxtConfig({
   runtimeConfig: {
     apiBase: '',
     apiToken: '',
+    secretKey: '',
+    public: {
+      siteKey: '',
+    },
   },
   build: {
     transpile: ['vue-toastification'],

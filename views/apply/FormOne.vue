@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { Form } from 'vee-validate'
 import { FormModel } from '~~/types'
+import VueHcaptcha from '@hcaptcha/vue3-hcaptcha'
 
+const hcaptChaToken = ref<string>('')
 const form = reactive<FormModel>({
   studentId: '',
   name: '',
@@ -11,9 +13,15 @@ const form = reactive<FormModel>({
   applyReason: '',
   grade: 1,
   experience: '',
+  direction: '',
 })
 
-const { handleSubmit, isLoading } = useSubmitForm(form)
+const { siteKey } = useRuntimeConfig().public
+const { handleSubmit, isLoading } = useSubmitForm(form, hcaptChaToken)
+
+const onVerify = (token: string, eKey: string) => {
+  hcaptChaToken.value = token
+}
 </script>
 
 <template>
@@ -75,6 +83,10 @@ const { handleSubmit, isLoading } = useSubmitForm(form)
           :rules="'required'"
           :name="'applyReason'"
           :label="'说说你为什么想加入软件部'"
+        />
+        <VueHcaptcha
+          :sitekey="siteKey"
+          @verify="onVerify"
         />
         <button
           :class="{ loading: isLoading }"
