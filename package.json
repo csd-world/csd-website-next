@@ -24,6 +24,7 @@
     "pinia": "^2.1.6",
     "swiper": "^8.1.4",
     "vee-validate": "^4.6.7",
-    "vue-toastification": "^2.0.0-rc.5"
+    "vue-toastification": "^2.0.0-rc.5",
+    "vue3-puzzle-vcode": "1.1.6-nuxt"
   }
 }
