@@ -63,7 +63,7 @@ const onSuccess =() => {
     class="container flex-grow px-4 flex flex-col-reverse sm:px-0 sm:grid sm:grid-cols-3 sm:space-x-4"
   >
     <Form
-      :onSubmit="handleSubmit"
+      :onSubmit="onShow"
       class="space-y-4 form"
     >
       <div class="input-row">
