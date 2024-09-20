@@ -1,5 +1,5 @@
 export const QQ_GROUP_LINK =
-  'https://qm.qq.com/cgi-bin/qm/qr?k=kREGZtuwgGFfSA1GmOHwynHtd4lIsps3'
+  'https://qm.qq.com/q/x6Mdl75hkW'
 
 export const csdWebsites = {
   '软件部 OJ': 'https://oj.dsstudio.tech/problem',
@@ -9,7 +9,7 @@ export const csdWebsites = {
 }
 
 export const friendLinks = {
-  校基地硬件部: 'https://sctc.guet.one/hardware/',
+  电子工程训练基地硬件部:'http://10.60.55.55/',
   三院科协: 'https://hello.kexie.space/',
   七院创新基地: 'https://xn--7gqr3hs9ecxao51c822e.cn/',
 }

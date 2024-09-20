@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { Form } from 'vee-validate'
 import { FormModel } from '~~/types'
-import VueHcaptcha from '@hcaptcha/vue3-hcaptcha'
+import Vcode from 'vue3-puzzle-vcode'
+import { ref } from "vue";
+
 
 const hcaptChaToken = ref<string>('')
 const form = reactive<FormModel>({
@@ -38,9 +40,22 @@ const directionOptions = [
   },
 ]
 
-const onVerify = (token: string, eKey: string) => {
-  hcaptChaToken.value = token
-}
+const isShow = ref(false);
+
+const onShow = () => {
+  isShow.value = true;
+};
+
+const onClose = () => {
+  isShow.value = false;
+};
+
+const onSuccess =() => {
+  onClose(); // 验证成功，需要手动关闭模态框
+  hcaptChaToken.value = "siteKey"
+  handleSubmit()
+
+};
 </script>
 
 <template>
@@ -106,10 +121,7 @@ const onVerify = (token: string, eKey: string) => {
         :name="'applyReason'"
         :label="'说说你为什么想加入软件部'"
       />
-      <VueHcaptcha
-        :sitekey="siteKey"
-        @verify="onVerify"
-      />
+      <Vcode :show="isShow" @success="onSuccess" @close="onClose" />
       <button
         :class="{ loading: isLoading }"
         :disabled="isLoading"
