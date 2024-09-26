@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { QQ_GROUP_LINK, csdWebsites, friendLinks } from '~~/common'
+import { QQ_GROUP_LINK, csdWebsites, friendLinks, csdLocation } from '~~/common'
 
 const props = defineProps<{
   textStyle?: `text-${string}`
@@ -34,7 +34,8 @@ const { textStyle, bgStyle } = props
             >155315316</a
           >
         </li>
-        <li>线下地址：大学生活动中心三楼 302 软件部/花江慧谷6号楼人工智能学院208</li>
+        <li>线下地址：<a v-for="(link, title) in csdLocation"
+            :href="link"  target="_blank">{{ title }}</a></li>
       </ul>
     </div>
     <div>

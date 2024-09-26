@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { Form } from 'vee-validate'
 import { FormModel } from '~~/types'
-import Vcode from 'vue3-puzzle-vcode'
-import { ref } from "vue";
+
 
 
 const hcaptChaToken = ref<string>('')
@@ -40,22 +39,7 @@ const directionOptions = [
   },
 ]
 
-const isShow = ref(false);
 
-const onShow = () => {
-  isShow.value = true;
-};
-
-const onClose = () => {
-  isShow.value = false;
-};
-
-const onSuccess =() => {
-  onClose(); // 验证成功，需要手动关闭模态框
-  hcaptChaToken.value = "siteKey"
-  handleSubmit()
-
-};
 </script>
 
 <template>
@@ -63,7 +47,7 @@ const onSuccess =() => {
     class="container flex-grow px-4 flex flex-col-reverse sm:px-0 sm:grid sm:grid-cols-3 sm:space-x-4"
   >
     <Form
-      :onSubmit="onShow"
+      :onSubmit="handleSubmit "
       class="space-y-4 form"
     >
       <div class="input-row">
@@ -121,7 +105,7 @@ const onSuccess =() => {
         :name="'applyReason'"
         :label="'说说你为什么想加入软件部'"
       />
-      <Vcode :show="isShow" @success="onSuccess" @close="onClose" />
+      
       <button
         :class="{ loading: isLoading }"
         :disabled="isLoading"
