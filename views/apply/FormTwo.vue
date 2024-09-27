@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { Form } from 'vee-validate'
 import { FormModel } from '~~/types'
-import VueHcaptcha from '@hcaptcha/vue3-hcaptcha'
+
+
 
 const hcaptChaToken = ref<string>('')
 const form = reactive<FormModel>({
@@ -38,9 +39,7 @@ const directionOptions = [
   },
 ]
 
-const onVerify = (token: string, eKey: string) => {
-  hcaptChaToken.value = token
-}
+
 </script>
 
 <template>
@@ -48,7 +47,7 @@ const onVerify = (token: string, eKey: string) => {
     class="container flex-grow px-4 flex flex-col-reverse sm:px-0 sm:grid sm:grid-cols-3 sm:space-x-4"
   >
     <Form
-      :onSubmit="handleSubmit"
+      :onSubmit="handleSubmit "
       class="space-y-4 form"
     >
       <div class="input-row">
@@ -106,10 +105,7 @@ const onVerify = (token: string, eKey: string) => {
         :name="'applyReason'"
         :label="'说说你为什么想加入软件部'"
       />
-      <VueHcaptcha
-        :sitekey="siteKey"
-        @verify="onVerify"
-      />
+      
       <button
         :class="{ loading: isLoading }"
         :disabled="isLoading"

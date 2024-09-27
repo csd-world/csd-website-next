@@ -11,7 +11,10 @@ const { bgColor } = toRefs(options)
     <Navigation />
     <div class="container mx-auto px-4 pb-8 flex flex-col">
       <slot />
+     
       <Footer />
     </div>
+   
   </div>
+  
 </template>

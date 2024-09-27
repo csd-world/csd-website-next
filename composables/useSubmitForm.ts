@@ -7,13 +7,13 @@ export default function useSubmitForm(form: FormModel, hcaptChaToken?: Ref<strin
   const router = useRouter()
 
   async function handleSubmit() {
-    if (!hcaptChaToken?.value) {
-      toast.warning('请先进行人机验证！', {
-        position: POSITION.BOTTOM_CENTER,
-        hideProgressBar: true,
-      })
-      return
-    }
+    // if (!hcaptChaToken?.value) {
+    //   toast.warning('请先进行人机验证！', {
+    //     position: POSITION.BOTTOM_CENTER,
+    //     hideProgressBar: true,
+    //   })
+    //   return
+    // }
 
     if (isLoading.value) return
     isLoading.value = true
