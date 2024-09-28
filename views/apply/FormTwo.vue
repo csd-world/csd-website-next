@@ -6,15 +6,15 @@ import { FormModel } from '~~/types'
 
 const hcaptChaToken = ref<string>('')
 const form = reactive<FormModel>({
-  studentId: '',
+  student_number: '',
   name: '',
-  qq: '',
+  qq_number: '',
   email: '',
-  hadExperience: true,
-  applyReason: '',
+  is_fresh: true,
+  reason: '',
   grade: 2,
   experience: '',
-  direction: '',
+  orientation: '',
 })
 
 const { siteKey } = useRuntimeConfig().public
@@ -52,7 +52,7 @@ const directionOptions = [
     >
       <div class="input-row">
         <BaseInput
-          v-model="form.studentId"
+          v-model="form.student_number"
           :name="'studentId'"
           :rules="'required'"
           class="col-span-1"
@@ -69,7 +69,7 @@ const directionOptions = [
       </div>
       <div class="input-row">
         <BaseInput
-          v-model="form.qq"
+          v-model="form.qq_number"
           :name="'qq'"
           :rules="'required'"
           :label="'QQ'"
@@ -86,7 +86,7 @@ const directionOptions = [
       </div>
       <div class="input-row">
         <BaseSelect
-          v-model="form.direction"
+          v-model="form.orientation"
           :name="'direction'"
           :rules="'required'"
           :label="'方向'"
@@ -100,7 +100,7 @@ const directionOptions = [
         :label="'聊聊你学过的东西，以及参与过的项目'"
       />
       <BaseTextarea
-        v-model="form.applyReason"
+        v-model="form.reason"
         :rules="'required'"
         :name="'applyReason'"
         :label="'说说你为什么想加入软件部'"

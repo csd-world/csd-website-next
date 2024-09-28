@@ -22,7 +22,7 @@ export default function useSubmitForm(form: FormModel, hcaptChaToken?: Ref<strin
       method: 'POST',
       body: {
         data: form,
-        hcaptChaToken: hcaptChaToken?.value
+       
       },
     })
       .catch((e) => {

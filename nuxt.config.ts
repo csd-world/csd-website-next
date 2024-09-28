@@ -21,5 +21,7 @@ export default defineNuxtConfig({
   },
   build: {
     transpile: ['vue-toastification'],
+    target: 'server', //build打包用server，generate用static 默认 server
+
   },
 })
