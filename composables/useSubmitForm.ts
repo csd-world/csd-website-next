@@ -1,13 +1,12 @@
 import { useToast, POSITION } from 'vue-toastification'
 import { FormModel } from '~~/types'
 
-export default function useSubmitForm(form: FormModel, hcaptChaToken?: Ref<string>) {
+export default function useSubmitForm(form: FormModel) {
   const isLoading = ref(false)
   const toast = useToast()
   const router = useRouter()
 
   async function handleSubmit() {
-    
 
     if (isLoading.value) return
     isLoading.value = true
@@ -27,9 +26,7 @@ export default function useSubmitForm(form: FormModel, hcaptChaToken?: Ref<strin
         throw e
       })
       .then(() => {
-        console.log(1)
         router.push('/apply/success')
-
       })
 
     isLoading.value = false

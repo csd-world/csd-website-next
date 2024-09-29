@@ -2,8 +2,7 @@
 import { Form } from 'vee-validate'
 import { FormModel } from '~~/types'
 
-const hcaptChaToken = ref<string>('')
-  const form = reactive<FormModel>({
+const form = reactive<FormModel>({
   student_number: '',
   name: '',
   qq_number: '',
@@ -16,11 +15,7 @@ const hcaptChaToken = ref<string>('')
 })
 
 const { siteKey } = useRuntimeConfig().public
-const { handleSubmit, isLoading } = useSubmitForm(form, hcaptChaToken)
-
-const runtimeConfig = useRuntimeConfig()
-  const { apiBase, apiToken, secretKey } = runtimeConfig.public
-  console.log(apiBase, apiToken, secretKey)
+const { handleSubmit, isLoading } = useSubmitForm(form)
 </script>
 
 <template>
