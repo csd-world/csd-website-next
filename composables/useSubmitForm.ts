@@ -7,21 +7,7 @@ export default function useSubmitForm(form: FormModel, hcaptChaToken?: Ref<strin
   const router = useRouter()
 
   async function handleSubmit() {
-    // if (!hcaptChaToken?.value) {
-    //   toast.warning('请先进行人机验证！', {
-    //     position: POSITION.BOTTOM_CENTER,
-    //     hideProgressBar: true,
-    //   })
-    //   return
-    // }
-    // const config = useRuntimeConfig()
-    // const a =config.public.apiBase;
-    // const b = config.public.apiToken;
-    const runtimeConfig = useRuntimeConfig()
-    const { apiBase, apiToken, secretKey } = runtimeConfig.public
-    console.log(apiBase,apiToken);
-    console.log(runtimeConfig);
-    // console.log(a,b);
+    
 
     if (isLoading.value) return
     isLoading.value = true

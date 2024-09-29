@@ -67,7 +67,7 @@ const runtimeConfig = useRuntimeConfig()
           />
         </div>
         <BaseCheckbox
-          v-model="form.is_fresh"
+          v-model="form.had_experience"
           :name="'hadExperience'"
           :label="'我有编程基础'"
         />
