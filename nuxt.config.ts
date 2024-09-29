@@ -12,14 +12,17 @@ export default defineNuxtConfig({
   css: ['~/style/index.css', '~/assets/icon/iconfont.css'],
   components: ['~/views', '~/components'],
   runtimeConfig: {
-    apiBase: '',
-    apiToken: '',
+   
     secretKey: '',
     public: {
       siteKey: '',
+      apiBase: process.env.API_BASE || '',
+      apiToken: process.env.API_TOKEN || '',
     },
   },
   build: {
     transpile: ['vue-toastification'],
+    target: 'server', //build打包用server，generate用static 默认 server
+
   },
 })

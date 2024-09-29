@@ -2,23 +2,20 @@
 import { Form } from 'vee-validate'
 import { FormModel } from '~~/types'
 
-const hcaptChaToken = ref<string>('')
 const form = reactive<FormModel>({
-  studentId: '',
+  student_number: '',
   name: '',
-  qq: '',
+  qq_number: '',
   email: '',
-  hadExperience: false,
-  applyReason: '',
+  had_experience: false,
+  reason: '',
   grade: 1,
   experience: '',
-  direction: '',
+  orientation: '',
 })
 
 const { siteKey } = useRuntimeConfig().public
-const { handleSubmit, isLoading } = useSubmitForm(form, hcaptChaToken)
-
-
+const { handleSubmit, isLoading } = useSubmitForm(form)
 </script>
 
 <template>
@@ -32,7 +29,7 @@ const { handleSubmit, isLoading } = useSubmitForm(form, hcaptChaToken)
       >
         <div class="input-row">
           <BaseInput
-            v-model="form.studentId"
+            v-model="form.student_number"
             :name="'studentId'"
             :rules="'required'"
             class="col-span-1"
@@ -49,7 +46,7 @@ const { handleSubmit, isLoading } = useSubmitForm(form, hcaptChaToken)
         </div>
         <div class="input-row">
           <BaseInput
-            v-model="form.qq"
+            v-model="form.qq_number"
             :name="'qq'"
             :rules="'required'"
             :label="'QQ'"
@@ -65,7 +62,7 @@ const { handleSubmit, isLoading } = useSubmitForm(form, hcaptChaToken)
           />
         </div>
         <BaseCheckbox
-          v-model="form.hadExperience"
+          v-model="form.had_experience"
           :name="'hadExperience'"
           :label="'我有编程基础'"
         />
@@ -76,7 +73,7 @@ const { handleSubmit, isLoading } = useSubmitForm(form, hcaptChaToken)
           :label="'聊聊你学过的东西，以及用来做过哪些有趣的事'"
         />
         <BaseTextarea
-          v-model="form.applyReason"
+          v-model="form.reason"
           :rules="'required'"
           :name="'applyReason'"
           :label="'说说你为什么想加入软件部'"

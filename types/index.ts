@@ -36,13 +36,13 @@ export type CustomPageMeta = PageMeta & {
 }
 
 export interface FormModel {
-  studentId: string
+  student_number: string
   name: string
-  qq: string
+  qq_number: string
   email: string
-  hadExperience: boolean
-  applyReason: string
+  had_experience: boolean
+  reason: string
   grade: number
   experience: string
-  direction: 'web' | 'game' | 'ai' | 'mobile' | ''
+  orientation: 'web' | 'game' | 'ai' | 'mobile' | ''
 }

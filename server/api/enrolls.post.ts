@@ -10,38 +10,28 @@ interface ReCaptchaResponse {
 
 const enrollsPost = defineEventHandler(async (event) => {
   const runtimeConfig = useRuntimeConfig()
-  const { apiBase, apiToken, secretKey } = runtimeConfig
+  const { apiBase, apiToken, secretKey } = runtimeConfig.public
+  
   const body = await readBody<{
     data: any
     hcaptChaToken: string
   }>(event)
-
-  const verifyRes: ReCaptchaResponse = await $fetch('https://api.hcaptcha.com/siteverify', {
+  
+ 
+  
+  const verifyRes: ReCaptchaResponse = await $fetch(`${apiBase}/api/enroll`, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
+      Authorization: `Bearer ${apiToken}`,
     },
-    body: new URLSearchParams({
-      response: body.hcaptChaToken,
-      secret: secretKey,
-    }),
-  })
-
-  if (verifyRes.success) {  
-    const response = await $fetch<unknown>(`${apiBase}/api/enrolls`, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${apiToken}`,
-      },
-      body: {
-        data: body.data
-      },
-    })
-
-    return response
-  } else {
-    return verifyRes
+    body: {
+      data: body.data
+    },
   }
+  )
+ 
+    return verifyRes
+  
 })
 
 export default enrollsPost
