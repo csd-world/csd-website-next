@@ -8,7 +8,7 @@ const hcaptChaToken = ref<string>('')
   name: '',
   qq_number: '',
   email: '',
-  is_fresh: false,
+  had_experience: false,
   reason: '',
   grade: 1,
   experience: '',
@@ -18,7 +18,9 @@ const hcaptChaToken = ref<string>('')
 const { siteKey } = useRuntimeConfig().public
 const { handleSubmit, isLoading } = useSubmitForm(form, hcaptChaToken)
 
-
+const runtimeConfig = useRuntimeConfig()
+  const { apiBase, apiToken, secretKey } = runtimeConfig.public
+  console.log(apiBase, apiToken, secretKey)
 </script>
 
 <template>

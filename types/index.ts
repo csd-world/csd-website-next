@@ -40,7 +40,7 @@ export interface FormModel {
   name: string
   qq_number: string
   email: string
-  is_fresh: boolean
+  had_experience: boolean
   reason: string
   grade: number
   experience: string

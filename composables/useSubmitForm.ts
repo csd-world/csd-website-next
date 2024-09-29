@@ -14,15 +14,22 @@ export default function useSubmitForm(form: FormModel, hcaptChaToken?: Ref<strin
     //   })
     //   return
     // }
+    // const config = useRuntimeConfig()
+    // const a =config.public.apiBase;
+    // const b = config.public.apiToken;
+    const runtimeConfig = useRuntimeConfig()
+    const { apiBase, apiToken, secretKey } = runtimeConfig.public
+    console.log(apiBase,apiToken);
+    console.log(runtimeConfig);
+    // console.log(a,b);
 
     if (isLoading.value) return
     isLoading.value = true
-
+   
     const response = await $fetch('/api/enrolls', {
       method: 'POST',
       body: {
         data: form,
-       
       },
     })
       .catch((e) => {
@@ -34,7 +41,9 @@ export default function useSubmitForm(form: FormModel, hcaptChaToken?: Ref<strin
         throw e
       })
       .then(() => {
+        console.log(1)
         router.push('/apply/success')
+
       })
 
     isLoading.value = false
